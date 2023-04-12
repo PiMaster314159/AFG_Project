@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AFG Project</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sample_company_text">This is a company</string>
 </resources>
