@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">AFG Project</string>
 
-// general strings
+    <!--main strings-->
+    <string name="main">Main/Home/Login</string>
+    <!-- /main strings-->
+
+
+    <!-- general strings -->
     <string name="iAmNotARobot">I am not a robot</string>
     <string name="TermsAndConditions">I have read and agree to the privacy policy and terms and conditions of this app</string>
     <string name="search">Search</string>
@@ -11,12 +16,10 @@
     <string name="colon">:</string>
     <string name="organization_toEvent">Go to Create Event</string>
     <string name="Organization_toProfile">Go to Organization Profile</string>
+    <!-- /general strings -->
 
 
-    // // general strings
-
-
-//organization profile setup
+    <!-- organization profile setup -->
     <string name="organization_profileStr">Organization Profile Setup</string>
     <string name="organization_nameStr">Please enter the name of your organization</string>
     <string name="organization_emailStr">Please enter the email of your organization</string>
@@ -29,19 +32,19 @@
     <string name="organization_passwordStr">Please enter your organization\'s password</string>
     <string name="organization_passwordConfirmStr">Please confirm your organization\'s password</string>
     <string name="ContinueFromOrganizationProfileSetup">Continue</string>
-// //organization profile setup
+    <!-- /organization profile setup-->
 
 
-//volunteer search
+    <!-- volunteer search -->
     <string name="volunteer_recommendedOrganizations">Recommended Organizations</string>
     <string name="volunteer_history">History</string>
     <string name="volunteer_organizationOneShortDesc">[description of 1st organization]</string>
     <string name="volunteer_organizationTwoShortDesc">[description of 2nd organization]</string>
     <string name="volunteer_organizationThreeShortDesc">[description of 3rd organization]</string>
     <string name="volunteer_organizationFourShortDesc">[description of 4th organization]</string>
-// //volunteer search
+    <!-- /volunteer search -->
 
-// organization create event
+    <!-- organization create event-->
     <string name="organization_createEvent">Create Event</string>
     <string name="organization_eventName">Event Name:</string>
     <string name="organization_eventLocation">Event Location:</string>
@@ -52,34 +55,35 @@
     <string name="organization_interestFields">Interest Fields:</string>
     <string name="organization_enterDescription">Input Organization Description Below</string>
 
-    //skills required
+    <!-- skills required -->
     <string-array name="skillsRequiredDropdown">
         <item>N/A</item>
         <item>requirementTwo</item>
         <item>requirementThree</item>
         <item>requirementFour</item>
     </string-array>
-    // /skills required
+    <!-- /skills required -->
 
-    //interest fields
+    <!-- interest fields -->
     <string-array name="interestFieldsDropdown">
         <item>N/A</item>
         <item>requirementTwo</item>
         <item>requirementThree</item>
         <item>requirementFour</item>
     </string-array>
-    // /interest fields
+    <!-- /interest fields -->
 
-    //event type
+    <!-- event type -->
     <string-array name="eventTypeDropdown">
         <item>N/A</item>
         <item>requirementTwo</item>
         <item>requirementThree</item>
         <item>requirementFour</item>
     </string-array>
-    // /event type
+    <!-- /event type -->
 
-    //hours
+    <!-- hours -->
+    <string name="hoursDesc">Enter the hour.</string>
     <string-array name="hoursDropdown">
         <item>01</item>
         <item>02</item>
@@ -94,16 +98,21 @@
         <item>11</item>
         <item>12</item>
     </string-array>
+    <!-- /hours -->
+
+
+    <!-- Am Pm -->
+    <string name="AmPmDesc">Enter the time of day.</string>
 
     <string-array name="AmPmDropdown">
         <item>AM</item>
         <item>PM</item>
     </string-array>
 
+    <!-- /Am Pm -->
 
-    // /hours
-
-    //hours
+    <!-- minutes -->
+    <string name="minutesDesc">Enter the minutes.</string>
     <string-array name="minutesDropdown">
         <item>01</item>
         <item>02</item>
@@ -164,9 +173,14 @@
         <item>57</item>
         <item>58</item>
         <item>59</item>
-    </string-array>
-    // /hours
+        </string-array>
+        <!-- /minutes -->
 
-    // // organization create event
+    <!-- /organization create event -->
+
+    <!-- navigation bar attempt -->
+
+    <!-- /navigation bar attempt -->
+
 
 </resources>

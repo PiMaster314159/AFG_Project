@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AFGProject"
         tools:targetApi="31">
         <activity
-            android:name=".organizationCreateEventActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".volunteerSearch"
@@ -21,7 +21,7 @@
             android:name=".organizationProfile"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".organizationCreateEventActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
