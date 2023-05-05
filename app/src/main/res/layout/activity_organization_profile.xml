@@ -60,12 +60,12 @@
                 android:text="@string/organization_profileStr"
                 android:textSize="24sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+          <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/organizationName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
+               <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/organization_nameStr"
@@ -93,7 +93,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/headEmail"
+                android:id="@+id/headEmail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -235,6 +235,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/TermsAndConditions"
                 android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/saveButton" />
 
         </LinearLayout>
         <!-- /my code-->

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<!-- location-->
+    <!--added this, wasn't in video but gave error otherwise-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- /added this, wasn't in video but gave error otherwise-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+<!-- /location-->
+
 
     <application
         android:allowBackup="true"
@@ -12,23 +20,34 @@
         android:theme="@style/Theme.AFGProject"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".volunteerSearch"
-            android:exported="false" /> <!-- switched event with main activity -->
+            android:exported="false" />
         <activity
             android:name=".organizationProfile"
             android:exported="false" />
         <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+        <!--donovan's stuff below-->
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".organizationCreateEventActivity"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"><!-- stick a different activity here to change which activity app starts on-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

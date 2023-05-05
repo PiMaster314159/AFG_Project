@@ -5,17 +5,30 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.view.MenuItem;
+
 
 import com.google.android.material.navigation.NavigationView;
 
-public class volunteerSearch extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity3 extends AppCompatActivity {
+    RecyclerView rv;
+    ArrayList<String> dataSource;
+    LinearLayoutManager linearLayoutManager;
+    MyRvAdapter myRvAdapter;
 
     //nav
-    DrawerLayout searchDrawerLayout;
+    DrawerLayout main3DrawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     // /nav
@@ -23,7 +36,25 @@ public class volunteerSearch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer_search);
+        setContentView(R.layout.activity_main3);
+        rv = findViewById(R.id.recyclerView);
+
+        //Setting the data source
+        dataSource = new ArrayList<>();
+        dataSource.add("Hello");
+        dataSource.add("World");
+        dataSource.add("To");
+        dataSource.add("The");
+        dataSource.add("Code");
+        dataSource.add("City");
+        dataSource.add("******");
+
+        linearLayoutManager = new LinearLayoutManager(MainActivity3.this, LinearLayoutManager.HORIZONTAL, false);
+        myRvAdapter = new MyRvAdapter(dataSource);
+        rv.setLayoutManager(linearLayoutManager);
+        rv.setAdapter(myRvAdapter);
+
+
 
         //nav
         setUpToolbar();
@@ -35,40 +66,42 @@ public class volunteerSearch extends AppCompatActivity {
                 {
                     case  R.id.nav_home:
 
-                        Intent homeIntent = new Intent(volunteerSearch.this, MainActivity.class);
+                        Intent homeIntent = new Intent(MainActivity3.this, MainActivity.class);
                         startActivity(homeIntent);
                         break;
 
                     case  R.id.nav_main2Drawer:
 
-                        Intent main2Intent = new Intent(volunteerSearch.this, MainActivity2.class);
+                        Intent main2Intent = new Intent(MainActivity3.this, MainActivity2.class);
                         startActivity(main2Intent);
                         break;
 
 
                     case  R.id.nav_main3Drawer:
 
-                        Intent main3Intent = new Intent(volunteerSearch.this, MainActivity3.class);
+                        Intent main3Intent = new Intent(MainActivity3.this, MainActivity3.class);
                         startActivity(main3Intent);
                         break;
 
+
+
                     case  R.id.nav_profileDrawer:
 
-                        Intent profileIntent = new Intent(volunteerSearch.this, organizationProfile.class);
+                        Intent profileIntent = new Intent(MainActivity3.this, organizationProfile.class);
                         startActivity(profileIntent);
                         break;
 
 
                     case  R.id.nav_eventDrawer:
 
-                        Intent eventIntent = new Intent(volunteerSearch.this, organizationCreateEventActivity.class);
+                        Intent eventIntent = new Intent(MainActivity3.this, organizationCreateEventActivity.class);
                         startActivity(eventIntent);
                         break;
 
 
                     case  R.id.nav_volunteerSearchDrawer:
 
-                        Intent searchIntent = new Intent(volunteerSearch.this, volunteerSearch.class);
+                        Intent searchIntent = new Intent(MainActivity3.this, volunteerSearch.class);
                         startActivity(searchIntent);
                         break;
 
@@ -99,15 +132,52 @@ public class volunteerSearch extends AppCompatActivity {
         });
     }
     public void setUpToolbar() {
-        searchDrawerLayout = findViewById(R.id.SearchDrawerLayout);
+        main3DrawerLayout = findViewById(R.id.SearchDrawerLayout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, searchDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
-        searchDrawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, main3DrawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        main3DrawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
 // /nav
 
 
     }
+    class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyHolder> {
+        ArrayList<String> data;
+
+        public MyRvAdapter(ArrayList<String> data) {
+            this.data = data;
+        }
+
+        @NonNull
+        @Override
+        public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(MainActivity3.this).inflate(R.layout.recycler_view_frag, parent, false);
+            return new MyHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+            holder.tvTitle.setText(data.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return data.size();
+        }
+
+        class MyHolder extends RecyclerView.ViewHolder {
+            TextView tvTitle;
+
+            public MyHolder(@NonNull View itemView) {
+                super(itemView);
+                tvTitle = itemView.findViewById(R.id.tvTitle);
+            }
+        }
+
+
+
+    }
 }
+

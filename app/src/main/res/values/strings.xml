@@ -1,8 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY appname "WhereDat"><!ENTITY author "Oded">]>
 <resources>
     <string name="app_name">AFG Project</string>
 
     <!--main strings-->
     <string name="main">Main/Home/Login</string>
+
+
+    <!-- location-->
+    <string name="allowLocation">Please allow access to your location.</string>
+    <string name="allowLocationButton">Allow access to this device\'s location</string>
+    <string name="locationServices">Please turn on your location services.</string>
+    <string name="locationServicesButton">Turn on location services</string>
+
+    <!-- /location-->
+
+
     <!-- /main strings-->
 
 
@@ -16,6 +28,8 @@
     <string name="colon">:</string>
     <string name="organization_toEvent">Go to Create Event</string>
     <string name="Organization_toProfile">Go to Organization Profile</string>
+    <string name="saveButton">Save</string>
+
     <!-- /general strings -->
 
 
@@ -183,4 +197,28 @@
     <!-- /navigation bar attempt -->
 
 
+
+<!-- kweku's strings-->
+    <string name="welcome_desc">Welcome to VolunTour, an app for connecting volunteers and local organizations!</string>
+    <string name="welcome_prompt">Lets get started: </string>
+    <string name="login">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="guest">Continue as guest</string>
+    <string name="element_text">Element</string>
+    <string name="grid_layout_manager">Grid Layout Manager</string>
+    <string name="linear_layout_manager">Linear Layout Manager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_message">
+       <!-- <![CDATA[
+
+
+                Demonstration of using RecyclerView with a LinearLayoutManager and GridLayoutManager
+                to create a vertical list. Tap \"SHOW LOG\" to view elements as they are bound to
+                their ViewHolder. The log also displays elements that you tap.
+
+
+        ]]>-->
+    </string>
+    <!-- /kweku's strings-->
 </resources>

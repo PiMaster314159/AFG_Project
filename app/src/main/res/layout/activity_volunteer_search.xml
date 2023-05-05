@@ -23,185 +23,185 @@
             android:background="#F7FFFFFF"
             android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F7FFFFFF"
-            app:subtitleTextColor="#0A0A0A"
-            app:titleTextColor="#111111" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7FFFFFF"
+                app:subtitleTextColor="#0A0A0A"
+                app:titleTextColor="#111111" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/search" />  <!-- label change in nav-->
-        <!--    my code -->
-        <!-- -->
-
-        <LinearLayout
-            android:id="@+id/mostOfSearchBodyLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/searchTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/search"
-                android:textSize="24sp" />
+                android:layout_height="match_parent"
+                android:text="@string/search" />  <!-- label change in nav-->
+            <!--    my code -->
+            <!-- -->
 
             <LinearLayout
-                android:id="@+id/searchBarLayout"
+                android:id="@+id/mostOfSearchBodyLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/searchBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/searchTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:textSize="24sp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/searchBarInput"
-                        android:layout_width="342dp"
+                <LinearLayout
+                    android:id="@+id/searchBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/searchBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/searchBarInput"
+                            android:layout_width="342dp"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/searchBarInput" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/searchIcon"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/searchBarInput" />
+                        android:layout_weight="1"
+                        app:srcCompat="@android:drawable/ic_search_category_default" />
 
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ImageView
-                    android:id="@+id/searchIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/ic_search_category_default" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/recommendedOrganizations"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/volunteer_recommendedOrganizations"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:id="@+id/organizationOneLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/organizationOneDesc"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/recommendedOrganizations"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/volunteer_organizationOneShortDesc" />
+                    android:text="@string/volunteer_recommendedOrganizations"
+                    android:textSize="20sp" />
 
-                <ImageButton
-                    android:id="@+id/emailButtonOne"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/organizationOneLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/sym_action_email" />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/organizationTwoLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/organizationOneDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/volunteer_organizationOneShortDesc" />
+
+                    <ImageButton
+                        android:id="@+id/emailButtonOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@android:drawable/sym_action_email" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/organizationTwoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/organizationTwoDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/volunteer_organizationTwoShortDesc" />
+
+                    <ImageButton
+                        android:id="@+id/emailButtonTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@android:drawable/sym_action_email" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/organizationTwoDesc"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/history"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/volunteer_organizationTwoShortDesc" />
+                    android:text="@string/volunteer_history"
+                    android:textSize="20sp" />
 
-                <ImageButton
-                    android:id="@+id/emailButtonTwo"
+                <LinearLayout
+                    android:id="@+id/organizationThreeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/organizationThreeDesc"
+                        android:layout_width="203dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/volunteer_organizationThreeShortDesc" />
+
+                    <ImageButton
+                        android:id="@+id/emailButtonThree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@android:drawable/sym_action_email" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/organizationFourLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/organizationFourDesc"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/volunteer_organizationFourShortDesc" />
+
+                    <ImageButton
+                        android:id="@+id/emailButtonFour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@android:drawable/sym_action_email" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/seeMoreButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="150dp"
                     android:layout_weight="1"
-                    app:srcCompat="@android:drawable/sym_action_email" />
-
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="@string/seeMoreButton" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/history"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/volunteer_history"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:id="@+id/organizationThreeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/organizationThreeDesc"
-                    android:layout_width="203dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/volunteer_organizationThreeShortDesc" />
-
-                <ImageButton
-                    android:id="@+id/emailButtonThree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/sym_action_email" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/organizationFourLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/organizationFourDesc"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/volunteer_organizationFourShortDesc" />
-
-                <ImageButton
-                    android:id="@+id/emailButtonFour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/sym_action_email" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/seeMoreButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="150dp"
-                android:layout_weight="1"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:text="@string/seeMoreButton" />
-        </LinearLayout>
-        <!-- /my code-->
+            <!-- /my code-->
         </LinearLayout>
     </ScrollView>
 
-<com.google.android.material.navigation.NavigationView
-android:id="@+id/navigation_menu"
-android:layout_gravity="start"
-android:layout_height="match_parent"
-android:layout_width="match_parent"
-app:headerLayout="@layout/header"
-app:menu="@menu/drawer_menu">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/drawer_menu">
 
-</com.google.android.material.navigation.NavigationView>
-    </androidx.drawerlayout.widget.DrawerLayout>
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

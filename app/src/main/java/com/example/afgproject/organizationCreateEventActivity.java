@@ -127,6 +127,20 @@ public class organizationCreateEventActivity extends AppCompatActivity {
                         startActivity(searchIntent);
                         break;
 
+                    case  R.id.nav_main2Drawer:
+
+                        Intent main2Intent = new Intent(organizationCreateEventActivity.this, MainActivity2.class);
+                        startActivity(main2Intent);
+                        break;
+
+
+                    case  R.id.nav_main3Drawer:
+
+                        Intent main3Intent = new Intent(organizationCreateEventActivity.this, MainActivity3.class);
+                        startActivity(main3Intent);
+                        break;
+
+
 
 //Paste your privacy policy link
 
