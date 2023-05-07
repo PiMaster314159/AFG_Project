@@ -5,10 +5,11 @@ public class Note {
     private String description;
     private int priority;
 
-    public Note(){
-
+    public Note() {
+        //empty constructor needed
     }
-    public Note(String title, String description, int priority){
+
+    public Note(String title, String description, int priority) {
         this.title = title;
         this.description = description;
         this.priority = priority;

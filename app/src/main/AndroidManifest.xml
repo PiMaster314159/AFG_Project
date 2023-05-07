@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AFGProject"
         tools:targetApi="31">
         <activity
+            android:name=".FirebaseOnclick"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
