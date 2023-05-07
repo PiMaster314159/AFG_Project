@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AFGProject"
         tools:targetApi="31">
         <activity
-            android:name=".FirebaseOnclick"
+            android:name=".FirebaseRecycler"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -21,7 +21,7 @@
             android:name=".homePage"
             android:exported="false" />
         <activity
-            android:name=".FirebaseRecycler"
+            android:name=".FirebaseOnclick"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

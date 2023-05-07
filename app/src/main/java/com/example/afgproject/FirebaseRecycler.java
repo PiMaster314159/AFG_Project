@@ -75,15 +75,12 @@ public class FirebaseRecycler extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-        adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                Note note = documentSnapshot.toObject(Note.class);
-                String id = documentSnapshot.getId();
-                String path = documentSnapshot.getReference().getPath();
-                Toast.makeText(FirebaseRecycler.this,
-                        "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
-            }
+        adapter.setOnItemClickListener((documentSnapshot, position) -> {
+            Note note = documentSnapshot.toObject(Note.class);
+            String id = documentSnapshot.getId();
+            String path = documentSnapshot.getReference().getPath();
+            Toast.makeText(FirebaseRecycler.this,
+                    "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
         });
     }
 

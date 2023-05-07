@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="organizationName">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#2f2f2f</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>
