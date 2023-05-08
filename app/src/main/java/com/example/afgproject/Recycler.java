@@ -36,6 +36,7 @@ public class Recycler extends Fragment {
 
 
     public Recycler(LayoutManagerType layoutManagerType,ArrayList<String> data){
+        System.out.println("Test b");
         dataSource = data;
         switch (layoutManagerType){
             case GRID_LAYOUT_MANAGER:
@@ -48,13 +49,23 @@ public class Recycler extends Fragment {
                 layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                 break;
         }
+        System.out.println("Test a");
+        System.out.println("Layout Manager: " + layoutManager);
+    }
 
+    public Recycler(ArrayList<String> data){
+        System.out.println("Test b");
+        dataSource = data;
+        layoutManager = new GridLayoutManager(getContext(), 3);
+        System.out.println("Test a");
+        System.out.println("Layout Manager: " + layoutManager);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        System.out.println("Test c");
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_recycler, container, false);
         rootView.setTag(TAG);
@@ -92,7 +103,7 @@ public class Recycler extends Fragment {
         @NonNull
         @Override
         public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.profile_view, parent, false);
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.organization_field, parent, false);
             return new MyHolder(view);
         }
 
@@ -101,6 +112,7 @@ public class Recycler extends Fragment {
             System.out.println(dataSource);
             System.out.println("holder: " + holder);
             System.out.println("position: " + position);
+            System.out.println("data: " + data.get(0));
             holder.getTvTitle().setText(data.get(position));
         }
 
@@ -116,7 +128,7 @@ public class Recycler extends Fragment {
 
             public MyHolder(@NonNull View itemView) {
                 super(itemView);
-                tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+                tvTitle = (TextView) itemView.findViewById(R.id.field_holder);
                 System.out.println("tv: " + tvTitle);
             }
 
