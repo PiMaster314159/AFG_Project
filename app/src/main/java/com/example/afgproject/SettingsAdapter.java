@@ -13,42 +13,36 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 
-public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.NoteHolder> {
+public class SettingsAdapter extends FirestoreRecyclerAdapter<SettingsAdapter.SettingsNote, SettingsAdapter.SettingsHolder> {
     private OnItemClickListener listener;
 
-    public NoteAdapter(@NonNull FirestoreRecyclerOptions<Note> options) {
+    public SettingsAdapter(@NonNull FirestoreRecyclerOptions<SettingsNote> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull NoteHolder holder, int position, @NonNull Note model) {
-        holder.textViewTitle.setText(model.getTitle());
-        holder.textViewDescription.setText(model.getDescription());
-        holder.textViewPriority.setText(String.valueOf(model.getPriority()));
+    protected void onBindViewHolder(@NonNull SettingsHolder holder, int position, @NonNull SettingsNote model) {
+        holder.name.setText(model.getName());
     }
 
     @NonNull
     @Override
-    public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SettingsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_item,
                 parent, false);
-        return new NoteHolder(v);
+        return new SettingsHolder(v);
     }
 
     public void deleteItem(int position) {
         getSnapshots().getSnapshot(position).getReference().delete();
     }
 
-    class NoteHolder extends RecyclerView.ViewHolder {
-        TextView textViewTitle;
-        TextView textViewDescription;
-        TextView textViewPriority;
+    class SettingsHolder extends RecyclerView.ViewHolder {
+        TextView name;
 
-        public NoteHolder(View itemView) {
+        public SettingsHolder(View itemView) {
             super(itemView);
-            textViewTitle = itemView.findViewById(R.id.text_view_title);
-            textViewDescription = itemView.findViewById(R.id.text_view_description);
-            textViewPriority = itemView.findViewById(R.id.text_view_priority);
+            name = itemView.findViewById(R.id.settings_widget_text);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -59,6 +53,19 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
                     }
                 }
             });
+        }
+    }
+
+    class SettingsNote {
+        private String name;
+        public SettingsNote(){
+
+        }
+        public SettingsNote(String name){
+            this.name = name;
+        }
+        public String getName(){
+            return name;
         }
     }
 

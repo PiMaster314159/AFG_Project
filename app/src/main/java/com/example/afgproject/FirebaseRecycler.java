@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -26,26 +24,6 @@ public class FirebaseRecycler extends AppCompatActivity {
         setContentView(R.layout.activity_firebase_recycler);
 
         setUpRecyclerView();
-
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        // Create a new user with a first and last name
-//        db.collection("users")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//                                Log.d(TAG, document.getId() + " => " + document.getData());
-//                            }
-//                        } else {
-//                            Log.w(TAG, "Error getting documents.", task.getException());
-//                        }
-//                    }
-//                });
-//
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
     }
 
     private void setUpRecyclerView() {

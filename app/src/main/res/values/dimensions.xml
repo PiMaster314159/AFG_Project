@@ -4,4 +4,6 @@
     <dimen name="profile_cRad">75dp</dimen>
     <dimen name="organization_preview_width">175dp</dimen>
     <dimen name="organization_preview_height">175dp</dimen>
+    <dimen name="settings_widget_width">150dp</dimen>
+    <dimen name="settings_widget_height">150dp</dimen>
 </resources>

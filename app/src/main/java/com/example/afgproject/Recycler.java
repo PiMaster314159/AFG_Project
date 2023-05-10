@@ -98,9 +98,6 @@ public class Recycler extends Fragment {
 
         @Override
         public void onBindViewHolder(MyHolder holder, int position) {
-            System.out.println(dataSource);
-            System.out.println("holder: " + holder);
-            System.out.println("position: " + position);
             holder.getTvTitle().setText(data.get(position));
         }
 

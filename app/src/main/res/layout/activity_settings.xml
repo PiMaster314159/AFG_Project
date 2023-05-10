@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/interests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:name="com.example.afgproject.FirebaseRecyclerView"
+        tools:layout="@layout/fragment_firebase_recycler_view" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/skills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.example.afgproject.FirebaseRecyclerView"
+        tools:layout="@layout/fragment_firebase_recycler_view" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
