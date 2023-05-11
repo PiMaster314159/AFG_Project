@@ -37,6 +37,13 @@ public final class Utils {
         }
         return objectMapArrayList;
     }
+    public static ArrayList<ObjectMap> createObjectMapList(String[] keys, ArrayList<Object[]> valueArrList){
+        ArrayList<ObjectMap> objectMapArrayList = new ArrayList<ObjectMap>();
+        for(Object[] values : valueArrList){
+            objectMapArrayList.add(new ObjectMap(keys, values));
+        }
+        return objectMapArrayList;
+    }
 
 
 }

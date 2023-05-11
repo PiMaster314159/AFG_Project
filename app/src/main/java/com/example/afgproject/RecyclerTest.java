@@ -36,6 +36,7 @@ public class RecyclerTest extends Fragment {
         LINEAR_LAYOUT_MANAGER_HORIZONTAL,
         LINEAR_LAYOUT_MANAGER_Vertical
     }
+    MyAdapter.HolderType holderType;
     int layout;
 
     public RecyclerTest() {
@@ -48,7 +49,7 @@ public class RecyclerTest extends Fragment {
 
     }
 
-    public RecyclerTest(LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, int layout, MyRvHolder rvHolder){
+    public RecyclerTest(LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType){
         dataSource = data;
         switch (layoutManagerType){
             case GRID_LAYOUT_MANAGER:
@@ -61,9 +62,29 @@ public class RecyclerTest extends Fragment {
                 layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                 break;
         }
-        this.layout = layout;
-        this.rvHolder = rvHolder;
+        this.holderType = holderType;
+        this.myAdapter = new MyAdapter(dataSource, holderType);
+        System.out.println("holderType2 " + holderType);
     }
+
+    public RecyclerTest(LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType, MyAdapter.OnItemClickListener onItemClickListener){
+        dataSource = data;
+        switch (layoutManagerType){
+            case GRID_LAYOUT_MANAGER:
+                layoutManager = new GridLayoutManager(getContext(), 3);
+                break;
+            case LINEAR_LAYOUT_MANAGER_HORIZONTAL:
+                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                break;
+            case LINEAR_LAYOUT_MANAGER_Vertical:
+                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                break;
+        }
+        this.holderType = holderType;
+        this.myAdapter = new MyAdapter(dataSource, holderType, onItemClickListener);
+        System.out.println("holderType2 " + holderType);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,12 +96,8 @@ public class RecyclerTest extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rv = requireView().findViewById(R.id.recyclerView);
-        myAdapter = new MyAdapter((ArrayList<ObjectMap>) dataSource, rvHolder, layout);
+//        myAdapter = new MyAdapter(dataSource, holderType);
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(myAdapter);
-
-//        myAdapter.setOnItemClickListener((documentSnapshot, position) -> {
-//            Toast.makeText(getContext(), "Hello world", Toast.LENGTH_SHORT).show();
-//        });
     }
 }

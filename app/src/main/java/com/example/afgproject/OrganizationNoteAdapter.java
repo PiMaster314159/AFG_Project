@@ -69,4 +69,8 @@ public class OrganizationNoteAdapter extends FirestoreRecyclerAdapter<Organizati
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
+
+    public OnItemClickListener getListener(){
+        return listener;
+    }
 }

@@ -9,35 +9,63 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
     ArrayList<ObjectMap> data;
     MyRvHolder holder;
 
-    Class holderType;
     int layout;
-    private OrganizationNoteAdapter.OnItemClickListener listener;
+    private OnItemClickListener listener;
 
-    public MyAdapter(ArrayList<ObjectMap> data, Object holder, int layout) {
-        this.data = data;
-        this.holder = (MyRvHolder) holder;
-        this.layout = layout;
+    HolderType holderType;
+
+    OnItemClickListener onItemClickListener;
+
+    public enum HolderType {
+        USER_SETTINGS,
+        ACTIVITY,
+        ORGANIZATION
     }
 
-    public MyAdapter(ArrayList<ObjectMap> data, MyRvHolder holder, View.OnClickListener onClickListener) throws IllegalAccessException, InstantiationException {
+    public MyAdapter(ArrayList<ObjectMap> data, HolderType holderType) {
         this.data = data;
-        this.holder = holder;
-        System.out.println("Item count " + getItemCount());
+        this.holderType = holderType;
     }
+
+    public MyAdapter(ArrayList<ObjectMap> data, HolderType holderType, OnItemClickListener onItemClickListener) {
+        this.data = data;
+        this.holderType = holderType;
+        this.onItemClickListener = onItemClickListener;
+    }
+
+//    public MyAdapter(ArrayList<ObjectMap> data, MyRvHolder holder, View.OnClickListener onClickListener) throws IllegalAccessException, InstantiationException {
+//        this.data = data;
+//        this.holder = holder;
+//        System.out.println("Item count " + getItemCount());
+//    }
 
     @NonNull
     @Override
     public MyRvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
+
+//        View view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             System.out.println("Helloooooo");
-            this.holder = holder.newInstance(view);
+            View view;
+        switch (holderType){
+            case USER_SETTINGS:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
+                this.holder = new UserPreferenceHolder(view);
+                break;
+            case ACTIVITY:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
+                this.holder = new UserPreferenceHolder(view);
+                break;
+            case ORGANIZATION:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
+                this.holder = new UserPreferenceHolder(view);
+                break;
+        }
         return holder;
     }
 
@@ -54,10 +82,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
     }
 
     public interface OnItemClickListener {
-        void onItemClick(DocumentSnapshot documentSnapshot, int position);
+        void onItemClick(MyRvHolder myRvHolder, int position);
     }
 
-    public void setOnItemClickListener(OrganizationNoteAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 }

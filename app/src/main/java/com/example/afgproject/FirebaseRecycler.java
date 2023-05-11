@@ -58,7 +58,7 @@ public class FirebaseRecycler extends AppCompatActivity {
             String id = documentSnapshot.getId();
             String path = documentSnapshot.getReference().getPath();
             Toast.makeText(FirebaseRecycler.this,
-                    "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
+                    "Position: " + note.getTitle() + " ID: " + id, Toast.LENGTH_SHORT).show();
         });
     }
 

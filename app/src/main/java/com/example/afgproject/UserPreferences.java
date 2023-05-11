@@ -14,8 +14,8 @@ public class UserPreferences extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_preferences);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        ArrayList<ObjectMap> data = Utils.createObjectMapList(new String[]{"Widget Name"}, new String[][]{{"Hello"}, {"It's me"}});
-        RecyclerTest recycler = new RecyclerTest(RecyclerTest.LayoutManagerType.LINEAR_LAYOUT_MANAGER_Vertical, data, R.layout.settings_widget, new UserPreferenceHolder());
+        ArrayList<ObjectMap> data = Utils.createObjectMapList(new String[]{"Widget Text"}, new String[][]{{"Hello"}, {"It's me"}});
+        RecyclerTest recycler = new RecyclerTest(RecyclerTest.LayoutManagerType.LINEAR_LAYOUT_MANAGER_Vertical, data, MyAdapter.HolderType.USER_SETTINGS);
         transaction.replace(R.id.recyclerView, recycler);
         transaction.commit();
     }

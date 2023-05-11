@@ -48,7 +48,6 @@ public class Recycler extends Fragment {
                 layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                 break;
         }
-
     }
 
     @Nullable
