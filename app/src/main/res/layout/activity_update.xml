@@ -65,7 +65,7 @@
                 android:gravity="start|center_vertical"
                 android:hint="Enter date of event (02/05/2022)"
                 android:padding="16dp"
-                android:inputType="date"
+                android:inputType="phone"
                 android:digits="1234567890 /"
                 android:textColor="@color/lavender"
                 android:textSize="15dp"
