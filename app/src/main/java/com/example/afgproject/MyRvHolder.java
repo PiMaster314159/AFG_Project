@@ -4,13 +4,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.slider.Slider;
 
 import java.util.ArrayList;
 
 class MyRvHolder extends RecyclerView.ViewHolder {
     private MyAdapter.OnItemClickListener listener;
     private View itemView;
+    private ChangeListener changeListener;
 
     public MyRvHolder(@NonNull View itemView) {
         super(itemView);
@@ -20,7 +24,7 @@ class MyRvHolder extends RecyclerView.ViewHolder {
     public MyRvHolder(@NonNull View itemView, MyAdapter.OnItemClickListener listener) {
         super(itemView);
         this.itemView = itemView;
-        System.out.println("ok this is fine");
+        this.listener = listener;
     }
 
     public static MyRvHolder newInstance(@NonNull View itemView) {
@@ -30,8 +34,11 @@ class MyRvHolder extends RecyclerView.ViewHolder {
     public void setUpHolder(){
     }
 
+    public View getView(){
+        return itemView;
+    }
+
     public void setUpHolder(ObjectMap objectMap){
-        System.out.println("bbbbbbbbbbbbbbb");
     }
 
     protected View getItemView(){
@@ -42,7 +49,20 @@ class MyRvHolder extends RecyclerView.ViewHolder {
         return listener;
     }
 
-    public void setOnClick(){
+    public interface ChangeListener {
+        void onChange();
+    }
 
+
+    public ChangeListener getChangeListener() {
+        return changeListener;
+    }
+
+    public void setChangeListener(ChangeListener changeListener) {
+        this.changeListener = changeListener;
+    }
+
+    public String getName(){
+        return "";
     }
 }

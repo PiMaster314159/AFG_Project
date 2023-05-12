@@ -29,6 +29,7 @@ public class RecyclerTest extends Fragment {
     protected RecyclerView.LayoutManager layoutManager;
     MyAdapter myAdapter;
     ArrayList<ObjectMap> dataSource;
+    int id;
 
     MyRvHolder rvHolder;
     public enum LayoutManagerType {
@@ -49,7 +50,8 @@ public class RecyclerTest extends Fragment {
 
     }
 
-    public RecyclerTest(LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType){
+    public RecyclerTest(int id, LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType){
+        this.id = id;
         dataSource = data;
         switch (layoutManagerType){
             case GRID_LAYOUT_MANAGER:
@@ -64,10 +66,10 @@ public class RecyclerTest extends Fragment {
         }
         this.holderType = holderType;
         this.myAdapter = new MyAdapter(dataSource, holderType);
-        System.out.println("holderType2 " + holderType);
     }
 
-    public RecyclerTest(LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType, MyAdapter.OnItemClickListener onItemClickListener){
+    public RecyclerTest(int id, LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType, MyAdapter.OnItemClickListener onItemClickListener){
+        this.id = id;
         dataSource = data;
         switch (layoutManagerType){
             case GRID_LAYOUT_MANAGER:
@@ -82,7 +84,7 @@ public class RecyclerTest extends Fragment {
         }
         this.holderType = holderType;
         this.myAdapter = new MyAdapter(dataSource, holderType, onItemClickListener);
-        System.out.println("holderType2 " + holderType);
+        myAdapter.setOnItemClickListener(onItemClickListener);
     }
 
     @Override
@@ -96,8 +98,18 @@ public class RecyclerTest extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rv = requireView().findViewById(R.id.recyclerView);
-//        myAdapter = new MyAdapter(dataSource, holderType);
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(myAdapter);
+    }
+
+    public void iterate(){
+        ArrayList<MyRvHolder> stuff = myAdapter.getHolderList();
+        for(MyRvHolder holder : stuff){
+            System.out.println(((UserPreferenceHolder) holder).getSelected());
+        }
+    }
+
+    public MyAdapter getAdapter(){
+        return myAdapter;
     }
 }

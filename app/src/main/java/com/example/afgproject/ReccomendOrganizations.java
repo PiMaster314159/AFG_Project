@@ -1,6 +1,5 @@
 package com.example.afgproject;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Address;
@@ -18,8 +17,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,12 +57,12 @@ public class ReccomendOrganizations extends AppCompatActivity {
         }
         try {
             System.out.println("Test1 " + new Geocoder(MyApplication.getContext()).getFromLocationName("01604", 1).get(0).getFeatureName());
-            System.out.println("Test2 " + new Geocoder(MyApplication.getContext()).getFromLocationName(UserData.getZipCode(), 1).get(0).getFeatureName());
+            System.out.println("Test2 " + new Geocoder(MyApplication.getContext()).getFromLocationName(VolunteerSharedData.getZipCode(), 1).get(0).getFeatureName());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         try {
-            System.out.println("Distance: " + Utils.getDistance(UserData.getZipCode(), "01604"));
+            System.out.println("Distance: " + Utils.getDistance(VolunteerSharedData.getZipCode(), "01604"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -92,8 +89,8 @@ public class ReccomendOrganizations extends AppCompatActivity {
         ArrayList<Double> scores = new ArrayList<Double>();
         HashMap<OrgActivity, Double> activityScore = new HashMap<OrgActivity, Double>();
         for(OrgActivity activity : totalActivityList){
-            double distance = Utils.getDistance(UserData.getZipCode(), activity.getZipCode());
-            if(distance >= UserData.getMaxDistance()) {
+            double distance = Utils.getDistance(VolunteerSharedData.getZipCode(), activity.getZipCode());
+            if(distance >= VolunteerSharedData.getMaxDistance()) {
                 filteredActivityList.remove(activity);
                 continue;
             }
@@ -125,9 +122,9 @@ public class ReccomendOrganizations extends AppCompatActivity {
 
     private double getScore(OrgActivity activity, double distance){
         double score = 0;
-        ArrayList<String> userInterests = UserData.getInterests();
+        ArrayList<String> userInterests = VolunteerSharedData.getInterests();
         ArrayList<String> activityInterests = activity.getInterests();
-        ArrayList<String> userSkills = UserData.getSkills();
+        ArrayList<String> userSkills = VolunteerSharedData.getSkills();
         ArrayList<String> activitySkills = activity.getSkills();
         int numInterests = 0;
         for(String interest : activityInterests){
@@ -143,7 +140,7 @@ public class ReccomendOrganizations extends AppCompatActivity {
         }
         score += numSkills*Math.pow(2, numSkills/activitySkills.size());
 
-        score+=5-distance*(5/UserData.getMaxDistance());
+        score+=5-distance*(5/ VolunteerSharedData.getMaxDistance());
 
         return score;
     }

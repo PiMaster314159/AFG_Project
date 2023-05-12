@@ -36,7 +36,7 @@
             android:name=".homePage"
             android:exported="false" />
         <activity
-            android:name=".UserPreferences"
+            android:name=".VolunteerPreferences"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

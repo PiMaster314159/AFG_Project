@@ -1,5 +1,6 @@
 package com.example.afgproject;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.slider.Slider;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
 
     OnItemClickListener onItemClickListener;
 
+    ArrayList<MyRvHolder> holderList;
+
     public enum HolderType {
         USER_SETTINGS,
         ACTIVITY,
@@ -31,12 +35,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
     public MyAdapter(ArrayList<ObjectMap> data, HolderType holderType) {
         this.data = data;
         this.holderType = holderType;
+        this.holderList = new ArrayList<>();
     }
 
     public MyAdapter(ArrayList<ObjectMap> data, HolderType holderType, OnItemClickListener onItemClickListener) {
         this.data = data;
         this.holderType = holderType;
         this.onItemClickListener = onItemClickListener;
+        this.holderList = new ArrayList<>();
+        System.out.println("yayyyyy");
+//        this.setOnItemClickListener(onItemClickListener);
     }
 
 //    public MyAdapter(ArrayList<ObjectMap> data, MyRvHolder holder, View.OnClickListener onClickListener) throws IllegalAccessException, InstantiationException {
@@ -55,7 +63,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
         switch (holderType){
             case USER_SETTINGS:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
-                this.holder = new UserPreferenceHolder(view);
+                this.holder = new UserPreferenceHolder(view, listener);
+                holder.setChangeListener(() -> {
+                    System.out.println("Actually " + ((UserPreferenceHolder) holder).getSelected());
+                    if(((UserPreferenceHolder) holder).getSelected()){
+                        view.setBackgroundColor(Color.BLACK);
+                        System.out.println("yeeeeewwww");
+                    } else {
+                        System.out.println("yeeeeellll");
+                        view.setBackgroundColor(Color.BLUE);
+                    }
+                });
                 break;
             case ACTIVITY:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
@@ -72,6 +90,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
     @Override
     public void onBindViewHolder(@NonNull MyRvHolder holder, int position) {
         holder.setUpHolder(data.get(position));
+        holderList.add(holder);
     }
 
     @Override
@@ -81,8 +100,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
         return 0;
     }
 
+    public ArrayList<MyRvHolder> getHolderList() {
+        return holderList;
+    }
+
     public interface OnItemClickListener {
-        void onItemClick(MyRvHolder myRvHolder, int position);
+        void onItemClick(MyRvHolder myRvHolder);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

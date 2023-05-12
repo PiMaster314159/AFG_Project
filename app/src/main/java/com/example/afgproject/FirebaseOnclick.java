@@ -48,6 +48,12 @@ public class FirebaseOnclick extends AppCompatActivity {
             Toast.makeText(FirebaseOnclick.this,
                     "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
         });
+        organizationAdapter.setOnItemClickListener(new OrganizationNoteAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+
+            }
+        });
     }
 
 
