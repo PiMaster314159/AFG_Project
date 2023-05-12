@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 public class DetailActivity extends AppCompatActivity {
-    TextView detailDesc, detailTitle, detailLang;
+    TextView detailDesc, detailTitle, detailLang, detailTime;
     ImageView detailImage;
     FloatingActionButton deleteButton, editButton;
     String key = "";
@@ -29,11 +29,14 @@ public class DetailActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.deleteButton);
         editButton = findViewById(R.id.editButton);
         detailLang = findViewById(R.id.detailLang);
+        detailTime = findViewById(R.id.detailTime);
         Bundle bundle = getIntent().getExtras();
+
         if (bundle != null){
             detailDesc.setText(bundle.getString("Description"));
             detailTitle.setText(bundle.getString("Title"));
             detailLang.setText(bundle.getString("Language"));
+            detailTime.setText(bundle.getString("Time"));
             key = bundle.getString("Key");
             imageUrl = bundle.getString("Image");
             Glide.with(this).load(bundle.getString("Image")).into(detailImage);
@@ -63,7 +66,10 @@ public class DetailActivity extends AppCompatActivity {
                         .putExtra("Description", detailDesc.getText().toString())
                         .putExtra("Language", detailLang.getText().toString())
                         .putExtra("Image", imageUrl)
+                        .putExtra("Time",detailTime.getText().toString())
                         .putExtra("Key", key);
+
+
                 startActivity(intent);
             }
         });

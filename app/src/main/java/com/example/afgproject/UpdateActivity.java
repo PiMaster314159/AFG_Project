@@ -44,6 +44,9 @@ public class UpdateActivity extends AppCompatActivity {
         updateImage = findViewById(R.id.updateImage);
         updateLang = findViewById(R.id.updateLang);
         updateTitle = findViewById(R.id.updateTitle);
+        UpdateTime = findViewById(R.id.UpdateTime);
+        UpdateZipCode = findViewById(R.id.UpdateUserZipCode);
+
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -65,6 +68,8 @@ public class UpdateActivity extends AppCompatActivity {
             updateTitle.setText(bundle.getString("Title"));
             updateDesc.setText(bundle.getString("Description"));
             updateLang.setText(bundle.getString("Language"));
+            UpdateTime.setText(bundle.getString("Time"));
+            UpdateZipCode.setText(bundle.getString("ZipCode"));
             key = bundle.getString("Key");
             oldImageURL = bundle.getString("Image");
         }
@@ -116,7 +121,7 @@ public class UpdateActivity extends AppCompatActivity {
         lang = updateLang.getText().toString();
         zip = UpdateZipCode.getText().toString();
         ti = UpdateTime.getText().toString();
-        DataClass dataClass = new DataClass(title, desc, lang,zip,ti, imageUrl);
+        DataClass dataClass = new DataClass(title, desc, lang, imageUrl, zip, ti);
         databaseReference.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

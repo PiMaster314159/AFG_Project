@@ -108,7 +108,7 @@ public class UploadActivity extends AppCompatActivity {
         String lang = uploadLang.getText().toString();
         String zip = userZipCode.getText().toString();
         String ti = time.getText().toString();
-        DataClass dataClass = new DataClass(title, desc, lang, zip,ti, imageURL);
+        DataClass dataClass = new DataClass(title, desc, lang, imageURL,zip, ti);
 
         //We are changing the child from title to currentDate,
         // because we will be updating title as well and it may affect child value.
