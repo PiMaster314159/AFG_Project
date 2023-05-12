@@ -29,18 +29,19 @@ public class ReccomendActivities extends AppCompatActivity {
     private final CollectionReference organizationsRef = db.collection("Activities");
     ArrayList<OrganizationActivity> totalActivityList;
     ArrayList<OrganizationActivity> sortedActivityList;
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        VolunteerSharedData.putMaxDistance(50.0);
-        VolunteerSharedData.putZipCode("01564");
+//        VolunteerSharedData.putMaxDistance(50.0);
+//        VolunteerSharedData.putZipCode("01564");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reccomend_activities);
-        //        AlertDialog.Builder builder = new AlertDialog.Builder(ReccomendActivities.this);
-        //        builder.setCancelable(false);
-        //        builder.setView(R.layout.progress_layout);
-        //        AlertDialog dialog = builder.create();
-        //        dialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(ReccomendActivities.this);
+        builder.setCancelable(false);
+        builder.setView(R.layout.progress_layout);
+        this.dialog = builder.create();
+        dialog.show();
         this.totalActivityList = getActivities();
         try {
             this.sortedActivityList = filterActivities();
@@ -90,6 +91,7 @@ public class ReccomendActivities extends AppCompatActivity {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    dialog.dismiss();
                 }
                 System.out.println("size " + totalActivityList.size());
             }
@@ -110,6 +112,7 @@ public class ReccomendActivities extends AppCompatActivity {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                dialog.dismiss();
             }
         });
         System.out.println("aaaaaaaaaaaa");
