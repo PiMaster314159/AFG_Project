@@ -30,6 +30,7 @@ public final class Utils {
     }
 
     private static Address getAddress(String zipCode) throws IOException {
+        System.out.println("Addresses " + new Geocoder(MyApplication.getContext()).getFromLocationName(zipCode, 1));
         return new Geocoder(MyApplication.getContext()).getFromLocationName(zipCode, 1).get(0);
     }
 

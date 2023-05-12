@@ -18,6 +18,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.Transaction;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -31,6 +32,8 @@ public class ReccomendActivities extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        VolunteerSharedData.putMaxDistance(50.0);
+        VolunteerSharedData.putZipCode("01564");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reccomend_activities);
         //        AlertDialog.Builder builder = new AlertDialog.Builder(ReccomendActivities.this);
@@ -38,38 +41,55 @@ public class ReccomendActivities extends AppCompatActivity {
         //        builder.setView(R.layout.progress_layout);
         //        AlertDialog dialog = builder.create();
         //        dialog.show();
-                getActivities();
+        this.totalActivityList = getActivities();
         try {
-            filterActivities();
+            this.sortedActivityList = filterActivities();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("size " + sortedActivityList.size());
+        try {
+            setUpRecycler();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println();
+
+//        System.out.println("size " + sortedActivityList.size());
         System.out.println("test1" + totalActivityList);
         System.out.println("test2" + sortedActivityList);
+        for(OrganizationActivity activity : sortedActivityList){
+            System.out.println("activity " + activity);
+        }
         //        dialog.dismiss();
-        ActivityRecycler recycler = new ActivityRecycler(R.layout.recycler_item, RecyclerTest.LayoutManagerType.LINEAR_LAYOUT_MANAGER_Vertical, totalActivityList, ActivityAdapter.HolderType.ACTIVITY);
+        System.out.println("test1" + totalActivityList);
+        System.out.println("test2" + sortedActivityList);
+    }
+
+    public void setUpRecycler() throws IOException {
+        ActivityRecycler recycler = new ActivityRecycler(R.layout.recycler_item, RecyclerTest.LayoutManagerType.LINEAR_LAYOUT_MANAGER_Vertical, filterActivities(), ActivityAdapter.HolderType.ACTIVITY);
         getSupportFragmentManager().beginTransaction().replace(R.id.activityRecyclerView, recycler).commit();
     }
-    protected void getActivities(){
+    protected ArrayList<OrganizationActivity> getActivities(){
         totalActivityList = new ArrayList<>();
         organizationsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 totalActivityList.clear();
                 if(task.isSuccessful()) {
-                    System.out.println("Query successful");
                     for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                        System.out.println("successful");
+                        System.out.println("Query successfulf");
+                        System.out.println("successful " + documentSnapshot.toObject(OrganizationActivity.class).getDataTitle());
                         totalActivityList.add(documentSnapshot.toObject(OrganizationActivity.class));
+                    }
+                    try {
+                        filterActivities();
+                        setUpRecycler();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 System.out.println("size " + totalActivityList.size());
-                try {
-                    filterActivities();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
             }
         });
         organizationsRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -77,10 +97,12 @@ public class ReccomendActivities extends AppCompatActivity {
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException e) {
                 totalActivityList.clear();
                 for (QueryDocumentSnapshot doc : value) {
+                    System.out.println("Query successfulfl");
                     totalActivityList.add(doc.toObject(OrganizationActivity.class));
                 }
                 try {
                     filterActivities();
+                    setUpRecycler();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -90,14 +112,17 @@ public class ReccomendActivities extends AppCompatActivity {
         for(OrganizationActivity activity : totalActivityList){
             System.out.println(activity.getDataTitle());
         }
+        return totalActivityList;
     }
 
-    private void filterActivities() throws IOException {
+    private ArrayList<OrganizationActivity> filterActivities() throws IOException {
         sortedActivityList = (ArrayList<OrganizationActivity>) totalActivityList.clone();
         ArrayList<Double> scores = new ArrayList<Double>();
         HashMap<OrganizationActivity, Double> activityScore = new HashMap<OrganizationActivity, Double>();
         for(OrganizationActivity activity : totalActivityList){
+            System.out.println("zipCode " + activity.getZipCode());
             double distance = Utils.getDistance(VolunteerSharedData.getZipCode(), activity.getZipCode());
+            System.out.println("Distance " + distance);
             if(distance >= VolunteerSharedData.getMaxDistance()) {
                 sortedActivityList.remove(activity);
                 continue;
@@ -109,6 +134,7 @@ public class ReccomendActivities extends AppCompatActivity {
         ArrayList<Double> unsortedScores = (ArrayList<Double>) scores.clone();
         Collections.sort(scores, Collections.reverseOrder());
         sortedActivityList = organizeActivities(activityScore);
+        return sortedActivityList;
     }
     // https://www.digitalocean.com/community/tutorials/sort-hashmap-by-value-java
     private ArrayList<OrganizationActivity> organizeActivities(HashMap<OrganizationActivity, Double> map){
@@ -117,13 +143,18 @@ public class ReccomendActivities extends AppCompatActivity {
         for (Map.Entry<OrganizationActivity, Double> entry : map.entrySet()) {
             list.add(entry.getValue());
         }
-        Collections.sort(list);
+        Collections.sort(list, Collections.reverseOrder());
+        System.out.println(list);
         for (double num : list) {
             for (Map.Entry<OrganizationActivity, Double> entry : map.entrySet()) {
                 if (entry.getValue().equals(num)) {
+                    System.out.println(entry.getKey().getDataTitle());
                     sortedActivities.add(entry.getKey());
                 }
             }
+        }
+        for(OrganizationActivity activity : sortedActivities){
+            System.out.print(activity.getDataTitle() + " ");
         }
 
         return sortedActivities;
@@ -150,7 +181,7 @@ public class ReccomendActivities extends AppCompatActivity {
         score += numSkills*Math.pow(2, numSkills/(activitySkills.size()+1));
 
         score+=5-distance*(5/ VolunteerSharedData.getMaxDistance());
-
+        System.out.println(activity.getDataTitle() + " " + score);
         return score;
     }
 }
