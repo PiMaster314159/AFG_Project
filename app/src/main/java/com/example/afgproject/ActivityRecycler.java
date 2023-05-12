@@ -1,34 +1,25 @@
 package com.example.afgproject;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.google.firebase.firestore.DocumentSnapshot;
-
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * create an instance of this fragment.
- */
-public class RecyclerTest extends Fragment {
+public class ActivityRecycler extends RecyclerTest{
     protected RecyclerView rv;
-//    ArrayList<String> dataSource;
+    //    ArrayList<String> dataSource;
     protected LinearLayoutManager linearLayoutManager;
     protected RecyclerView.LayoutManager layoutManager;
-    protected MyAdapter myAdapter;
-    protected ArrayList<ObjectMap> dataSource;
+    protected ActivityAdapter myAdapter;
+    protected ArrayList<OrganizationActivity> dataSource;
     protected int id;
 
     public enum LayoutManagerType {
@@ -36,10 +27,11 @@ public class RecyclerTest extends Fragment {
         LINEAR_LAYOUT_MANAGER_HORIZONTAL,
         LINEAR_LAYOUT_MANAGER_Vertical
     }
-    MyAdapter.HolderType holderType;
+
+    ActivityAdapter.HolderType holderType;
     int layout;
 
-    public RecyclerTest() {
+    public ActivityRecycler() {
 
     }
 
@@ -49,7 +41,7 @@ public class RecyclerTest extends Fragment {
 
     }
 
-    public RecyclerTest(int id, LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType){
+    public ActivityRecycler(int id, RecyclerTest.LayoutManagerType layoutManagerType, ArrayList<OrganizationActivity> data, ActivityAdapter.HolderType holderType){
         this.id = id;
         dataSource = data;
         switch (layoutManagerType){
@@ -64,10 +56,10 @@ public class RecyclerTest extends Fragment {
                 break;
         }
         this.holderType = holderType;
-        this.myAdapter = new MyAdapter(dataSource, holderType);
+        this.myAdapter = new ActivityAdapter(dataSource, holderType);
     }
 
-    public RecyclerTest(int id, LayoutManagerType layoutManagerType, ArrayList<ObjectMap> data, MyAdapter.HolderType holderType, MyAdapter.OnItemClickListener onItemClickListener){
+    public ActivityRecycler(int id, RecyclerTest.LayoutManagerType layoutManagerType, ArrayList<OrganizationActivity> data, ActivityAdapter.HolderType holderType, ActivityAdapter.OnItemClickListener onItemClickListener){
         this.id = id;
         dataSource = data;
         switch (layoutManagerType){
@@ -82,7 +74,7 @@ public class RecyclerTest extends Fragment {
                 break;
         }
         this.holderType = holderType;
-        this.myAdapter = new MyAdapter(dataSource, holderType, onItemClickListener);
+        this.myAdapter = new ActivityAdapter(dataSource, holderType, (MyAdapter.OnItemClickListener) onItemClickListener);
         myAdapter.setOnItemClickListener(onItemClickListener);
     }
 
@@ -101,7 +93,7 @@ public class RecyclerTest extends Fragment {
         rv.setAdapter(myAdapter);
     }
 
-    public MyAdapter getAdapter(){
+    public ActivityAdapter getActivityAdapter(){
         return myAdapter;
     }
 }

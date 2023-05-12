@@ -9,11 +9,14 @@ import java.util.ArrayList;
 
 public final class Utils {
     public static double getDistance(String zipCode1, String zipCode2) throws IOException {
+
         Address address1 = getAddress(zipCode1);
         Address address2 = getAddress(zipCode2);
         Location location1 = new Location("userLocation");
         location1.setLatitude(address1.getLatitude());
         location1.setLongitude(address1.getLongitude());
+
+        System.out.println(location1);
 
         Location location2 = new Location("activityLocation");
         location2.setLatitude(address2.getLatitude());

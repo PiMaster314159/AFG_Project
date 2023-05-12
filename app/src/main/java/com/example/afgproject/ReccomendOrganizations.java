@@ -32,9 +32,9 @@ public class ReccomendOrganizations extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference activitiesRef = db.collection("Activities");
 
-    private ArrayList<OrgActivity> totalActivityList;
+    private ArrayList<OrganizationActivity> totalActivityList;
 
-    private ArrayList<OrgActivity> filteredActivityList;
+    private ArrayList<OrganizationActivity> filteredActivityList;
 
     private OrganizationNoteAdapter organizationAdapter;
     @Override
@@ -77,7 +77,7 @@ public class ReccomendOrganizations extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 for(QueryDocumentSnapshot document: task.getResult()){
-                    OrgActivity activity = document.toObject(OrgActivity.class);
+                    OrganizationActivity activity = document.toObject(OrganizationActivity.class);
                     totalActivityList.add(activity);
                 }
             }
@@ -85,10 +85,10 @@ public class ReccomendOrganizations extends AppCompatActivity {
     }
 
     private void filterActivities() throws IOException {
-        filteredActivityList = (ArrayList<OrgActivity>) totalActivityList.clone();
+        filteredActivityList = (ArrayList<OrganizationActivity>) totalActivityList.clone();
         ArrayList<Double> scores = new ArrayList<Double>();
-        HashMap<OrgActivity, Double> activityScore = new HashMap<OrgActivity, Double>();
-        for(OrgActivity activity : totalActivityList){
+        HashMap<OrganizationActivity, Double> activityScore = new HashMap<OrganizationActivity, Double>();
+        for(OrganizationActivity activity : totalActivityList){
             double distance = Utils.getDistance(VolunteerSharedData.getZipCode(), activity.getZipCode());
             if(distance >= VolunteerSharedData.getMaxDistance()) {
                 filteredActivityList.remove(activity);
@@ -103,15 +103,15 @@ public class ReccomendOrganizations extends AppCompatActivity {
         filteredActivityList = organizeActivities(activityScore);
     }
     // https://www.digitalocean.com/community/tutorials/sort-hashmap-by-value-java
-    private ArrayList<OrgActivity> organizeActivities(HashMap<OrgActivity, Double> map){
+    private ArrayList<OrganizationActivity> organizeActivities(HashMap<OrganizationActivity, Double> map){
         ArrayList<Double> list = new ArrayList<>();
-        ArrayList<OrgActivity> sortedActivities = new ArrayList<>();
-        for (Map.Entry<OrgActivity, Double> entry : map.entrySet()) {
+        ArrayList<OrganizationActivity> sortedActivities = new ArrayList<>();
+        for (Map.Entry<OrganizationActivity, Double> entry : map.entrySet()) {
             list.add(entry.getValue());
         }
         Collections.sort(list);
         for (double num : list) {
-            for (Map.Entry<OrgActivity, Double> entry : map.entrySet()) {
+            for (Map.Entry<OrganizationActivity, Double> entry : map.entrySet()) {
                 if (entry.getValue().equals(num)) {
                     sortedActivities.add(entry.getKey());
                 }
@@ -120,7 +120,7 @@ public class ReccomendOrganizations extends AppCompatActivity {
         return sortedActivities;
     }
 
-    private double getScore(OrgActivity activity, double distance){
+    private double getScore(OrganizationActivity activity, double distance){
         double score = 0;
         ArrayList<String> userInterests = VolunteerSharedData.getInterests();
         ArrayList<String> activityInterests = activity.getInterests();

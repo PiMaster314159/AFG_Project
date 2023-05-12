@@ -64,20 +64,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyRvHolder>{
             case USER_SETTINGS:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
                 this.holder = new UserPreferenceHolder(view, listener);
-                holder.setChangeListener(() -> {
-                    System.out.println("Actually " + ((UserPreferenceHolder) holder).getSelected());
-                    if(((UserPreferenceHolder) holder).getSelected()){
-                        view.setBackgroundColor(Color.BLACK);
-                        System.out.println("yeeeeewwww");
-                    } else {
-                        System.out.println("yeeeeellll");
-                        view.setBackgroundColor(Color.BLUE);
-                    }
-                });
                 break;
             case ACTIVITY:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
-                this.holder = new UserPreferenceHolder(view);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
+                this.holder = new ActivityHolder(view);
+                System.out.println("this should follow all right");
                 break;
             case ORGANIZATION:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);

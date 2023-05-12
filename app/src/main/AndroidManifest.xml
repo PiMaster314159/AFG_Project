@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AFGProject"
         tools:targetApi="31">
         <activity
+            android:name=".VolunteerPreferences"
+            android:exported="false" />
+        <activity
             android:name=".UserSettings"
             android:exported="false" />
         <activity
@@ -36,7 +39,7 @@
             android:name=".homePage"
             android:exported="false" />
         <activity
-            android:name=".VolunteerPreferences"
+            android:name=".ReccomendActivities"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
