@@ -80,7 +80,9 @@ public class ReccomendActivities extends AppCompatActivity {
                     for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                         System.out.println("Query successfulf");
                         System.out.println("successful " + documentSnapshot.toObject(OrganizationActivity.class).getDataTitle());
-                        totalActivityList.add(documentSnapshot.toObject(OrganizationActivity.class));
+                        OrganizationActivity activity = documentSnapshot.toObject(OrganizationActivity.class);
+                        activity.setKey(documentSnapshot.getId());
+                        totalActivityList.add(activity);
                     }
                     try {
                         filterActivities();
@@ -98,7 +100,9 @@ public class ReccomendActivities extends AppCompatActivity {
                 totalActivityList.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     System.out.println("Query successfulfl");
-                    totalActivityList.add(doc.toObject(OrganizationActivity.class));
+                    OrganizationActivity activity = doc.toObject(OrganizationActivity.class);
+                    activity.setKey(doc.getId());
+                    totalActivityList.add(activity);
                 }
                 try {
                     filterActivities();

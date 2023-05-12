@@ -107,6 +107,8 @@
 
 package com.example.afgproject;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,13 +117,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.slider.Slider;
-import com.google.firebase.firestore.DocumentSnapshot;
+//import com.google.android.material.slider.Slider;
+//import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 
 public class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder>{
     ArrayList<OrganizationActivity> data;
+    Context context;
     ActivityHolder holder;
 
     int layout;
@@ -141,12 +144,14 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder>{
 
     public ActivityAdapter(ArrayList<OrganizationActivity> data, HolderType holderType) {
         this.data = data;
+        this.context = context;
         this.holderType = holderType;
         this.holderList = new ArrayList<>();
     }
 
     public ActivityAdapter(ArrayList<OrganizationActivity> data, HolderType holderType, MyAdapter.OnItemClickListener onItemClickListener) {
         this.data = data;
+        this.context = context;
         this.holderType = holderType;
         this.onItemClickListener = onItemClickListener;
         this.holderList = new ArrayList<>();
@@ -163,7 +168,6 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder>{
     @NonNull
     @Override
     public ActivityHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
 //        View view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
         System.out.println("Helloooooo");
         View view;
@@ -180,12 +184,25 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder>{
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.settings_widget, parent, false);
                 break;
         }
+        this.context = parent.getContext();
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ActivityHolder holder, int position) {
         holder.setUpHolder(data.get(position));
+        holder.recCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("Image", data.get(holder.getAdapterPosition()).getDataImage());
+                intent.putExtra("Description", data.get(holder.getAdapterPosition()).getDataDesc());
+                intent.putExtra("Title", data.get(holder.getAdapterPosition()).getDataTitle());
+                intent.putExtra("Key",data.get(holder.getAdapterPosition()).getKey());
+                intent.putExtra("Language", data.get(holder.getAdapterPosition()).getDataLang());
+                context.startActivity(intent);
+            }
+        });
         holderList.add(holder);
     }
 

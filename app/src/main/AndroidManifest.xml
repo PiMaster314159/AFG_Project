@@ -16,7 +16,7 @@
             android:name=".UserSettings"
             android:exported="false" />
         <activity
-            android:name=".ReccomendActivities"
+            android:name=".VolunteerPreferences"
             android:exported="false" />
         <activity
             android:name=".FirebaseOnclick"
@@ -29,6 +29,8 @@
         <activity
             android:name=".Settings"
             android:exported="false" />
+        <activity android:name=".DetailActivity"
+            android:exported="false"/>
         <activity
             android:name=".FirebaseRecycler"
             android:exported="false" />
@@ -39,7 +41,7 @@
             android:name=".homePage"
             android:exported="false" />
         <activity
-            android:name=".VolunteerPreferences"
+            android:name=".ReccomendActivities"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

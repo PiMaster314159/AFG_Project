@@ -15,6 +15,7 @@ public class ActivityHolder extends MyRvHolder{
     ImageView recImage;
     TextView recTitle, recDesc, recLang;
     CardView recCard;
+    String key;
     public ActivityHolder(@NonNull View itemView) {
         super(itemView);
         recImage = itemView.findViewById(R.id.recImage);
@@ -30,6 +31,31 @@ public class ActivityHolder extends MyRvHolder{
         recTitle.setText(activity.getDataTitle());
         recDesc.setText(activity.getDataDesc());
         recLang.setText(activity.getDataLang());
+        this.key = activity.getKey();
         System.out.println("helloooo");
+    }
+
+    public String getKey(){
+        return key;
+    }
+
+    public ImageView getRecImage() {
+        return recImage;
+    }
+
+    public TextView getRecTitle() {
+        return recTitle;
+    }
+
+    public TextView getRecDesc() {
+        return recDesc;
+    }
+
+    public TextView getRecLang() {
+        return recLang;
+    }
+
+    public CardView getRecCard() {
+        return recCard;
     }
 }
