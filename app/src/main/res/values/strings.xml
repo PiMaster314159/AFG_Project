@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY appname "WhereDat"><!ENTITY author "Oded">]>
 <resources>
-    <string name="app_name">AFG Project</string>
+    <string name="app_name">VolunTour</string>
+
+   <!--navbar strings-->
+    <string name="mainNav">Sign Out</string>
+    <string name="profileNav">Organization Profile</string>
+    <string name="eventNav">Create Event</string>
+    <string name="searchNav">Search</string>
+    <string name="main2Nav">Main2</string>
+    <string name="main3Nav">Main3</string>
+    <string name="shareNav">Share</string>
+
+
 
     <!--main strings-->
     <string name="main">Main/Home/Login</string>
@@ -35,17 +46,25 @@
 
     <!-- organization profile setup -->
     <string name="organization_profileStr">Organization Profile Setup</string>
-    <string name="organization_nameStr">Please enter the name of your organization</string>
-    <string name="organization_emailStr">Please enter the email of your organization</string>
-    <string name="head_emailStr">Please enter the email of the head of your organization</string>
-    <string name="organization_phoneStr">Please enter the phone number of your organization</string>
-    <string name="head_phoneStr">Please enter the phone number of the head of your organization</string>
+    <string name="organization_nameStr">Please enter the name of your organization.</string>
+    <string name="organization_emailStr">Please enter the email of your organization.</string>
+    <string name="head_emailStr">Please enter the email of the head of your organization.</string>
+    <string name="organization_phoneStr">Please enter the phone number of your organization.</string>
+    <string name="head_phoneStr">Please enter the phone number of the head of your organization.</string>
     <string name="organization_licenseStr">Please submit your organization\'s license</string>
-    <string name="organization_locationStr">Please enter your organization\'s location</string>
-    <string name="organization_usernameStr">Please enter your organization\'s username</string>
-    <string name="organization_passwordStr">Please enter your organization\'s password</string>
-    <string name="organization_passwordConfirmStr">Please confirm your organization\'s password</string>
+    <string name="organization_locationStr">Please enter your organization\'s zip code.</string>
+    <string name="organization_usernameStr">Please enter your organization\'s username.</string>
+    <string name="organization_passwordStr">Please enter your organization\'s password.</string>
+    <string name="organization_passwordConfirmStr">Please confirm your organization\'s password.</string>
     <string name="ContinueFromOrganizationProfileSetup">Continue</string>
+
+    <string name="nameExample">e.g. VolounTour</string>
+    <string name="emailExample">e.g. VolunTour@gmail.com</string>
+    <string name="phoneExample">e.g. 0123456789</string>
+    <string name="zipCodeExample">e.g. 12345</string>
+
+
+
     <!-- /organization profile setup-->
 
 
@@ -207,7 +226,6 @@
     <string name="element_text">Element</string>
     <string name="grid_layout_manager">Grid Layout Manager</string>
     <string name="linear_layout_manager">Linear Layout Manager</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro_message">
        <!-- <![CDATA[

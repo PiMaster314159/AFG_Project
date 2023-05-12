@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 //import android.location.LocationRequest;
@@ -24,7 +23,7 @@ import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import com.google.android.gms.location.LocationAvailability;
+//import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -40,11 +39,11 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //location//
+  /**  //location//
     private TextView allowLocation;
     private Button locationButton;
     private LocationRequest locationRequest;
-    // /location//
+    // /location//*/
     //nav
     DrawerLayout mainDrawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -64,21 +63,20 @@ public class MainActivity extends AppCompatActivity {
 // /shared preferences
 
 
-        //location
+      /**  //location
         allowLocation = findViewById(R.id.allowLocationPrompt);
         locationButton = findViewById(R.id.allowLocationButton);
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(2000);
-// /location
+// /location */
         //nav
         setUpToolbar();
 
-        navigationView = (NavigationView)
-
-                findViewById(R.id.navigation_menu);
+        navigationView = findViewById(R.id.navigation_menu);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
@@ -146,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             }});
                 // /nav
 
-                //location
+               /** //location
                 locationButton.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -186,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     }
-                });
+                });*/
             }
 
     public void setUpToolbar() {
@@ -199,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
     }
 // /nav
 
-    //location
+    /** //location
 
     private void turnOnGPS() {
 
@@ -238,8 +236,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+     }
 
-    }
 
     private boolean isGPSEnabled() {
         LocationManager locationManager = null;
@@ -253,5 +251,5 @@ public class MainActivity extends AppCompatActivity {
 
         isEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         return isEnabled;
-    }
+    }*/
 }
