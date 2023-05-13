@@ -38,6 +38,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     //nav
@@ -47,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences sharedPref = getSharedPreferences((MyApplication.getInstance().getString(R.string.user_preferences_map)), Context.MODE_PRIVATE);
+        System.out.println(getSharedPreferences((getString(R.string.user_preferences_map)), MODE_PRIVATE).getBoolean("onStart", false));
+        SharedPreferences sharedPref = getSharedPreferences((getString(R.string.user_preferences_map)), MODE_PRIVATE);
+        VolunteerSharedData.setSharedPreferences();
+        sharedPref.edit().putBoolean("onStart", true).apply();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

@@ -36,9 +36,8 @@ public class OrganizationHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
+        this.navigationView = new NavigationView(OrganizationHome.this);
         setContentView(R.layout.activity_organization_home);
         recyclerView = findViewById(R.id.recyclerView);
         fab = findViewById(R.id.fab);

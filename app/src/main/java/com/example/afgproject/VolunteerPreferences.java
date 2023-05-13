@@ -1,5 +1,6 @@
 package com.example.afgproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,6 @@ public class VolunteerPreferences extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        VolunteerSharedData.putInterests(new ArrayList<>(Arrays.asList("hello")));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_preferences);
 
@@ -41,6 +41,8 @@ public class VolunteerPreferences extends AppCompatActivity {
             public void onClick(View v) {
                 System.out.println("ok");
                 saveData();
+                Intent intent = new Intent(v.getContext(), ReccomendActivities.class);
+                startActivity(intent);
             }
         });
     }

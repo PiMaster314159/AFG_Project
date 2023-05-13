@@ -3,7 +3,7 @@ package com.example.afgproject;
 import android.app.Application;
 import android.content.Context;
 
-public class MyApplication extends Application {
+public final class MyApplication extends Application {
     private static MyApplication instance;
     private static Context context;
 

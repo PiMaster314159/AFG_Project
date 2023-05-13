@@ -1,5 +1,9 @@
 package com.example.afgproject;
 
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
+
 public class ActivityData {
     private String dataTitle;
     private String dataDesc;
@@ -8,6 +12,8 @@ public class ActivityData {
     private String zipCode;
     private String key;
     private String time;
+    private ArrayList<String> skills;
+    private ArrayList<String> interests;
 
     public ActivityData() {
     }
@@ -37,6 +43,12 @@ public class ActivityData {
     public void setKey(String key) {
         this.key = key;
     }
+    public ArrayList<String> getSkills(){
+        return skills;
+    }
+    public ArrayList<String> getInterests(){
+        return interests;
+    }
 
     public ActivityData(String dataTitle, String dataDesc, String dataLang, String dataImage, String zipCode, String time){
         this.dataTitle = dataTitle;
@@ -45,5 +57,7 @@ public class ActivityData {
         this.dataImage = dataImage;
         this.zipCode = zipCode;
         this.time = time;
+        this.skills = new ArrayList<String>();
+        this.interests = new ArrayList<String>();
     }
 }

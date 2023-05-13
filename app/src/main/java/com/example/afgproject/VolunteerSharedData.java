@@ -11,7 +11,7 @@ import java.util.HashSet;
 
 public final class VolunteerSharedData {
 
-    private static final SharedPreferences sharedPreferences = MyApplication.getInstance().getSharedPreferences(MyApplication.getInstance().getString(R.string.user_preferences_map), Context.MODE_PRIVATE);
+    private static SharedPreferences sharedPreferences;
 
     public static String getZipCode(){
         return sharedPreferences.getString("zipCode", "00000");
@@ -35,6 +35,8 @@ public final class VolunteerSharedData {
     }
 
     public static void putInterests(ArrayList<String> interests){
+        System.out.println("Shared preferences " + sharedPreferences);
+        System.out.println("Get interests " + getInterests());
         sharedPreferences.edit().putStringSet("interests", new HashSet<>(interests)).apply();
     }
     public static void putSkills(ArrayList<String> skills){
@@ -45,5 +47,11 @@ public final class VolunteerSharedData {
     }
     public static void putZipCode(String zipCode){
         sharedPreferences.edit().putString("zipCode", zipCode).apply();
+    }
+
+    public static void setSharedPreferences(){
+        System.out.println("Instance " + MyApplication.getInstance());
+        sharedPreferences = MyApplication.getInstance().getSharedPreferences(MyApplication.getInstance().getString(R.string.user_preferences_map), Context.MODE_PRIVATE);
+        System.out.println(sharedPreferences);
     }
 }
