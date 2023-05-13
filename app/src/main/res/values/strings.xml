@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">VolunTour</string>
 
-   <!--navbar strings-->
+    <!--navbar strings-->
     <string name="mainNav">Sign Out</string>
     <string name="profileNav">Organization Profile</string>
     <string name="eventNav">Create Event</string>
@@ -10,7 +10,6 @@
     <string name="main2Nav">Main2</string>
     <string name="main3Nav">Main3</string>
     <string name="shareNav">Share</string>
-
 
 
     <!--main strings-->
@@ -62,7 +61,6 @@
     <string name="emailExample">e.g. VolunTour@gmail.com</string>
     <string name="phoneExample">e.g. 0123456789</string>
     <string name="zipCodeExample">e.g. 12345</string>
-
 
 
     <!-- /organization profile setup-->
@@ -206,8 +204,8 @@
         <item>57</item>
         <item>58</item>
         <item>59</item>
-        </string-array>
-        <!-- /minutes -->
+    </string-array>
+    <!-- /minutes -->
 
     <!-- /organization create event -->
 
@@ -216,8 +214,7 @@
     <!-- /navigation bar attempt -->
 
 
-
-<!-- kweku's strings-->
+    <!-- kweku's strings-->
     <string name="welcome_desc">Welcome to VolunTour, an app for connecting volunteers and local organizations!</string>
     <string name="welcome_prompt">Lets get started: </string>
     <string name="login">Log in</string>
@@ -239,4 +236,17 @@
         ]]>-->
     </string>
     <!-- /kweku's strings-->
+    <string name="sample_company_text">This is a company</string>
+    <string name="title_activity_reccomend_organizations">ReccomendOrganizations</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="user_preferences_map">User Preferences</string>
+    <string name="empty_string" />
 </resources>

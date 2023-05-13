@@ -1,47 +1,18 @@
 package com.example.afgproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.ktx.Firebase;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class organizationProfile extends AppCompatActivity {
     //fb
@@ -66,7 +37,7 @@ public class organizationProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_organization_profile);
+        setContentView(R.layout.organization_profile);
 
         // pulling organization's info from firebase needs a set id, so can be future extension.
         /**
@@ -129,18 +100,6 @@ public class organizationProfile extends AppCompatActivity {
                     startActivity(searchIntent);
                     break;
 
-                case R.id.nav_main2Drawer:
-
-                    Intent main2Intent = new Intent(organizationProfile.this, MainActivity2.class);
-                    startActivity(main2Intent);
-                    break;
-
-
-                case R.id.nav_main3Drawer:
-
-                    Intent main3Intent = new Intent(organizationProfile.this, MainActivity3.class);
-                    startActivity(main3Intent);
-                    break;
 
 
 //Paste your privacy policy link

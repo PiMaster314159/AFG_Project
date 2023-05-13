@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="list_item_height">72dp</dimen>
+    <dimen name="profile_radius">150dp</dimen>
+    <dimen name="profile_cRad">75dp</dimen>
+    <dimen name="organization_preview_width">175dp</dimen>
+    <dimen name="organization_preview_height">175dp</dimen>
+    <dimen name="settings_widget_width">150dp</dimen>
+    <dimen name="settings_widget_height">100dp</dimen>
 ]</resources>
