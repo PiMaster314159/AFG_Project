@@ -14,7 +14,7 @@ public final class VolunteerSharedData {
     private static SharedPreferences sharedPreferences;
 
     public static String getZipCode(){
-        return sharedPreferences.getString("zipCode", "00000");
+        return sharedPreferences.getString("zipCode", "01604");
     }
 
     public static ArrayList<String> getSkills(){
@@ -27,7 +27,7 @@ public final class VolunteerSharedData {
 
     public static float getMaxDistance(){
         System.out.println("ok this is fine");
-        return sharedPreferences.getFloat("maxDist", 0.0f);
+        return sharedPreferences.getFloat("maxDist", 50.0f);
     }
 
     public static Address getLocation() throws IOException {
@@ -50,8 +50,11 @@ public final class VolunteerSharedData {
     }
 
     public static void setSharedPreferences(){
-        System.out.println("Instance " + MyApplication.getInstance());
         sharedPreferences = MyApplication.getInstance().getSharedPreferences(MyApplication.getInstance().getString(R.string.user_preferences_map), Context.MODE_PRIVATE);
         System.out.println(sharedPreferences);
+    }
+
+    public static void clearSharedPreferences(){
+        sharedPreferences.edit().clear().apply();
     }
 }

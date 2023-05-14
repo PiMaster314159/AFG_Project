@@ -1,5 +1,6 @@
 package com.example.afgproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +81,7 @@ public class VolunteerPreferences extends AppCompatActivity {
     }
 
     public void saveData(){
+        getSharedPreferences("Profile", Context.MODE_PRIVATE).edit().putInt("ProfileType", 1).apply();
         ArrayList<MyRvHolder> totalInterests = interestsLayout.getAdapter().getHolderList();
         ArrayList<String> selectedInterests = new ArrayList<>();
         for(MyRvHolder holder : totalInterests)
@@ -96,5 +98,7 @@ public class VolunteerPreferences extends AppCompatActivity {
 
         VolunteerSharedData.putZipCode(String.valueOf(zipCodeEdit.getText()));
         VolunteerSharedData.putMaxDistance(Double.parseDouble(String.valueOf(maxDistEdit.getText())));
+
+
     }
 }

@@ -28,6 +28,7 @@ public class ReccomendActivities extends AppCompatActivity {
     ArrayList<ActivityData> totalActivityList;
     ArrayList<ActivityData> sortedActivityList;
     AlertDialog dialog;
+    MyNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class ReccomendActivities extends AppCompatActivity {
 //        VolunteerSharedData.putZipCode("01564");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reccomend_activities);
+        this.navigationView = new MyNavigationView(findViewById(R.id.navigation_menu));
         AlertDialog.Builder builder = new AlertDialog.Builder(ReccomendActivities.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);

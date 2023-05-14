@@ -1,5 +1,6 @@
 package com.example.afgproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -134,7 +135,7 @@ public class organizationCreateProfile extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("yeet");
+                getSharedPreferences("Profile", Context.MODE_PRIVATE).edit().putInt("ProfileType", 2).apply();
                 Intent intent = new Intent(v.getContext(), OrganizationHome.class);
                 startActivity(intent);
 //                setContentView(R.layout.activity_organization_profile);

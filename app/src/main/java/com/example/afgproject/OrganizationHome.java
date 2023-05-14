@@ -1,9 +1,12 @@
 package com.example.afgproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,13 +35,16 @@ public class OrganizationHome extends AppCompatActivity {
     RvAdapter adapter;
     SearchView searchView;
 
-    NavigationView navigationView;
+    MyNavigationView navigationView;
+
+    DrawerLayout mainDrawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.navigationView = new NavigationView(OrganizationHome.this);
         setContentView(R.layout.activity_organization_home);
+        this.navigationView = new MyNavigationView(findViewById(R.id.navigation_menu));
         recyclerView = findViewById(R.id.recyclerView);
         fab = findViewById(R.id.fab);
         searchView = findViewById(R.id.search);

@@ -8,7 +8,7 @@
     android:background="#F7FFFFFF"
     android:fitsSystemWindows="true"
     android:minWidth="19dp"
-    tools:context=".organizationProfile">
+    tools:context=".organizationCreateProfile">
 
 
     <ScrollView
@@ -329,5 +329,5 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         app:headerLayout="@layout/header"
-        app:menu="@menu/drawer_menu"></com.google.android.material.navigation.NavigationView>
+        app:menu="@menu/organization_drawer_menu"></com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
