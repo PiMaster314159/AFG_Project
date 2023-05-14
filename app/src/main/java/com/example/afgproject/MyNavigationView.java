@@ -91,17 +91,24 @@ public class MyNavigationView {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.nav_home:
+                    case R.id.nav_home: {
 
-                        Intent homeIntent = new Intent(context, OrganizationHome.class);
+                        Intent homeIntent = new Intent(context, ReccomendActivities.class);
                         context.startActivity(homeIntent);
                         break;
+                    }
 
-
-                    case R.id.edit_profile:
-                        Intent eventIntent = new Intent(context, organizationCreateProfile.class);
+                    case R.id.search_opportunities: {
+                        Intent eventIntent = new Intent(context, ReccomendActivities.class);
                         context.startActivity(eventIntent);
                         break;
+                    }
+
+                    case R.id.edit_profile: {
+                        Intent eventIntent = new Intent(context, VolunteerPreferences.class);
+                        context.startActivity(eventIntent);
+                        break;
+                    }
 
                     case R.id.nav_share: {
 
