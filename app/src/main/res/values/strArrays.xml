@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="volunteer_interest_names">
+        <item>Advocacy &amp; Human Rights</item>
+        <item>Animals</item>
+        <item>Arts &amp; Culture</item>
+        <item>Board Development</item>
+        <item>Children &amp; Youth</item>
+        <item>Community</item>
+        <item>Computers &amp; Technology</item>
+        <item>Crisis Support</item>
+        <item>Disaster Relief</item>
+        <item>Education &amp; Literacy</item>
+        <item>Emergency &amp; Safety</item>
+        <item>Employment</item>
+        <item>Environment</item>
+        <item>Faith-Based</item>
+        <item>Health &amp; Medicine</item>
+        <item>Homeless &amp; Housing</item>
+        <item>Hunger</item>
+        <item>Immigrants &amp; Refugees</item>
+        <item>International</item>
+        <item>Justice &amp; Legal</item>
+        <item>LGBTQ+</item>
+        <item>Media &amp; Broadcasting</item>
+        <item>People with Disabilities</item>
+        <item>Politics</item>
+        <item>Race &amp; Ethnicity</item>
+        <item>Seniors</item>
+        <item>Sports &amp; Recreation</item>
+        <item>Veterans &amp; Military Families</item>
+        <item>Women</item>
+    </string-array>
+    
+    <string-array name="volunteer_skill_names">
+        <item>Academics</item>
+        <item>Administrative &amp; Clerical</item>
+        <item>Animals &amp; Environment</item>
+        <item>Arts</item>
+        <item>Business &amp; Management</item>
+        <item>Children &amp; Family</item>
+        <item>Computers &amp; IT</item>
+        <item>Disaster Relief</item>
+        <item>Education &amp; Literacy</item>
+        <item>Engineering</item>
+        <item>Finance</item>
+        <item>Food Service &amp; Events</item>
+        <item>For Profit &amp; Nonprofit Development</item>
+        <item>HR</item>
+        <item>Healthcare &amp; Social Services</item>
+        <item>Hobbies &amp; Crafts</item>
+        <item>Housing &amp; Facilities</item>
+        <item>IT Infrastructure &amp; Software</item>
+        <item>Interactive &amp; Web Development</item>
+        <item>Interpersonal</item>
+        <item>Language &amp; Culture</item>
+        <item>Legal &amp; Advocacy</item>
+        <item>Logistics, Supply Chain &amp; Transportation</item>
+        <item>Marketing &amp; Communications</item>
+        <item>Music</item>
+        <item>Performing Arts</item>
+        <item>Sports &amp; Recreation</item>
+        <item>Strategy Development &amp; Business Planning</item>
+        <item>Trades</item>
+    </string-array>
+</resources>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileDrawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7FFFFFF"
+    android:fitsSystemWindows="true"
+    android:minWidth="19dp"
+    tools:context=".organizationProfile">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#90C7CAE3">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7FFFFFF"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7FFFFFF"
+                app:subtitleTextColor="#0A0A0A"
+                app:titleTextColor="#111111" />
+
+
+            <LinearLayout
+                android:id="@+id/mostOfProfileSetupLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/organizationProfileSetupTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#B18FED"
+                    android:ems="10"
+                    android:text="@string/organization_profileStr"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/organizationNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#90C7CAE3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/organizationNameQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/organization_nameStr"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/organizationName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text="@string/nameExample"
+                        android:textSize="18sp"
+                        android:importantForAutofill="no"
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/emailsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:id="@+id/organizationEmailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/organizationEmailQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/organization_emailStr"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/organizationEmailInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textEmailSubject"
+                            android:text="@string/emailExample"
+                            android:textSize="18sp"
+                            android:importantForAutofill="no"
+                            tools:ignore="LabelFor,NestedWeights" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/headEmailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/headEmailQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/head_emailStr"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/headEmailInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textEmailSubject"
+                            android:text="@string/emailExample"
+                            android:textSize="18sp"
+                            tools:ignore="Autofill,LabelFor,NestedWeights" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/phoneNumbersLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#90C7CAE3"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+
+                    <LinearLayout
+                        android:id="@+id/organizationPhoneLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/organizationPhoneQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/organization_phoneStr"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/organizationPhoneInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:text="@string/phoneExample"
+                            android:textSize="18sp"
+                            tools:ignore="Autofill,LabelFor,NestedWeights,TextFields"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/headPhoneLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/headPhoneQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/head_phoneStr"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/headPhoneInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:text="@string/phoneExample"
+                            android:textSize="18sp"
+                            tools:ignore="Autofill,LabelFor,NestedWeights,TextFields"/>
+                    </LinearLayout>
+                    <!-- upload organization certification... code not done
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/licenseLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/organizationLicense"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:text="@string/organization_licenseStr"
+                                    android:textSize="18sp" />
+
+                                <ImageButton
+                                    android:id="@+id/uploadLicenseButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#8FE9FF"
+                                    app:srcCompat="@android:drawable/ic_menu_upload" />
+                            -->
+                </LinearLayout>
+
+
+                <!-- un and pwd... not coded
+            <EditText
+                android:id="@+id/organizationUsernameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/organization_usernameStr"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/organizationPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/organization_passwordStr"
+                android:textSize="18sp"/>
+
+           //delete confirm pwd?
+            <EditText
+                android:id="@+id/organizationPasswordConfirmInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/organization_passwordConfirmStr"
+                android:textSize="18sp"/>
+
+            <CheckBox
+                android:id="@+id/notARobot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/iAmNotARobot"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/termsAndConditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/TermsAndConditions"
+                android:textSize="18sp" />
+-->
+
+                <LinearLayout
+                    android:id="@+id/zipCodeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/organizationZipCodeQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/organization_locationStr"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/organizationZipCodeInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:text="@string/zipCodeExample"
+                        android:textSize="18sp"
+                        tools:ignore="Autofill,LabelFor"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/saveButton" />
+
+            </LinearLayout>
+            <!-- /my code-->
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFFFFF"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/drawer_menu"></com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>
