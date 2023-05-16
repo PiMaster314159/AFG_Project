@@ -19,26 +19,39 @@
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical">
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Settings"
+            android:textAlignment="center"
+            android:layout_marginTop="30dp"
+            android:textSize="35dp"
+            android:textColor="@color/lavender"/>
+
+        <TextView
             android:id="@+id/volunteer_zip_code_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enter Zip Code"
-            android:textAlignment="textStart"/>
+            android:textAlignment="center"
+            android:layout_marginTop="30dp"/>
 
         <EditText
             android:id="@+id/zip_code_edit"
+            android:background="@drawable/lavender_border"
             android:layout_width="200dp"
+            android:layout_marginStart="100dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:minHeight="48dp"
             android:layout_marginBottom="10dp"
-            android:text="01564"/>
+            android:text="01564"
+            android:textAlignment="center"/>
         <TextView
             android:id="@+id/volunteer_max_distance_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Maximum Opportunity Distance (miles)"
-            android:textAlignment="textStart" />
+            android:textAlignment="center" />
 
         <EditText
             android:id="@+id/max_distance_edit"
@@ -46,24 +59,34 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:minHeight="48dp"
-            android:text="50.0"/>
+            android:text="50.0"
+            android:layout_marginStart="100dp"
+            android:textAlignment="center"
+            android:background="@drawable/lavender_border"
+            />
         <TextView
             android:id="@+id/volunteer_interest_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Volunteer Fields of Interest"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"/>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="222dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/lavender_border">
+
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/interests_recycler_view"
                 android:name="com.example.afgproject.T_Recycler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_t_recycler"
-                />
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                tools:layout="@layout/fragment_t_recycler" />
         </ScrollView>
 
         <TextView
@@ -71,16 +94,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Volunteer Skills"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"/>
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="213dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/lavender_border">
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/skills_recycler_view"
                 android:name="com.example.afgproject.T_Recycler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
                 tools:layout="@layout/fragment_t_recycler" />
         </ScrollView>
     </LinearLayout>
