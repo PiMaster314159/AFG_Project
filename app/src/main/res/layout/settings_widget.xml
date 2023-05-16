@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/widget_card"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/settings_widget_height"
+    android:layout_height="80dp"
     app:cardBackgroundColor="@color/white"
-    app:cardElevation="2dp">
+    app:cardElevation="2dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    app:strokeColor="@color/Gray"
+    app:strokeWidth="2dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,8 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/unselected_check_box"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:tint="@color/lavender" />
 
         <TextView
             android:id="@+id/settings_widget_text"
@@ -27,4 +33,4 @@
             android:text="Hello world"
             android:textAlignment="center"/>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

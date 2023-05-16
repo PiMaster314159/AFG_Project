@@ -1,6 +1,7 @@
 package com.example.afgproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -21,14 +24,24 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class OrganizationHome extends AppCompatActivity {
 
     FloatingActionButton fab;
-    DatabaseReference databaseReference;
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    final CollectionReference activityReference = db.collection("Activities");;
     ValueEventListener eventListener;
     RecyclerView recyclerView;
     List<ActivityData> dataList;
@@ -59,25 +72,34 @@ public class OrganizationHome extends AppCompatActivity {
         dataList = new ArrayList<>();
         adapter = new RvAdapter(OrganizationHome.this, dataList);
         recyclerView.setAdapter(adapter);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
         dialog.show();
-        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+        activityReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 dataList.clear();
-                for (DataSnapshot itemSnapshot: snapshot.getChildren()){
-                    ActivityData dataClass = itemSnapshot.getValue(ActivityData.class);
-                    dataClass.setKey(itemSnapshot.getKey());
+                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                    ActivityData dataClass = documentSnapshot.toObject(ActivityData.class);
+                    dataClass.setKey((String) documentSnapshot.get("Key"));
                     dataList.add(dataClass);
                 }
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
+        });
+        activityReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                dataList.clear();
+                for (QueryDocumentSnapshot doc : value) {
+                    ActivityData dataClass = doc.toObject(ActivityData.class);
+                    dataClass.setKey((String) doc.get("Key"));
+                    dataList.add(dataClass);
+                }
+                adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
         });
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

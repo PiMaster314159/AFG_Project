@@ -1,10 +1,19 @@
 package com.example.afgproject;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
+
+import org.w3c.dom.Text;
 
 public class UserPreferenceHolder extends MyRvHolder {
     private TextView widgetName;
@@ -51,11 +60,19 @@ public class UserPreferenceHolder extends MyRvHolder {
         updateView();
     }
 
+    @SuppressLint({"ResourceAsColor", "ResourceType"})
     private void updateView(){
-        if(isSelected)
-            ((ImageView) getView().findViewById(R.id.select_box)).setBackgroundResource(R.drawable.selected_check_box);
-        else
-            ((ImageView) getView().findViewById(R.id.select_box)).setBackgroundResource(R.drawable.unselected_check_box);
+        ImageView circleSelect = ((ImageView) getView().findViewById(R.id.select_box));
+        MaterialCardView widgetCard = (MaterialCardView) getView().findViewById(R.id.widget_card);
+        TextView widgetText = (TextView) getView().findViewById(R.id.settings_widget_text);
+        if(isSelected) {
+            circleSelect.setImageResource(R.drawable.selected_check_box);
+            widgetCard.setStrokeColor(R.color.lavender);
+        }
+        else {
+            circleSelect.setImageResource(R.drawable.unselected_check_box);
+            widgetCard.setStrokeColor(R.color.Gray);
+        }
     }
 
     public boolean getSelected(){

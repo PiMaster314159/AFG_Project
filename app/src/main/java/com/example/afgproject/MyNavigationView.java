@@ -29,11 +29,11 @@ public class MyNavigationView {
         switch (accountType){
             case 1:
                 navigationView.inflateMenu(R.menu.volunteer_drawer_menu);
-                setUpOrganizationNavigationView();
+                setUpVolunteerNavigationView();
                 break;
             case 2:
                 navigationView.inflateMenu(R.menu.organization_drawer_menu);
-                setUpVolunteerNavigationView();
+                setUpOrganizationNavigationView();
                 break;
 
         }

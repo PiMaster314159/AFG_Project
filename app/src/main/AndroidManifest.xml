@@ -21,16 +21,7 @@
             android:name=".OrganizationHome"
             android:exported="false" />
         <activity
-            android:name=".volunteerSearch"
-            android:exported="false" />
-        <activity
-            android:name=".organizationProfile"
-            android:exported="false" />
-        <activity
             android:name=".organizationCreateProfile"
-            android:exported="false" />
-        <activity
-            android:name=".organizationCreateEventActivity"
             android:exported="false" />
         <activity android:name=".UploadActivity"
             android:exported="false" />

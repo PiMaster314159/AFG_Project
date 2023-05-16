@@ -10,7 +10,6 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class VolunteerPreferences extends AppCompatActivity {
     T_Recycler interestsLayout;
@@ -22,7 +21,7 @@ public class VolunteerPreferences extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_preferences);
+        setContentView(R.layout.activity_volunteer_preferences);
 
         MyAdapter.OnItemClickListener toggleSelectedListener = toggleSelectedListener();
 
