@@ -107,19 +107,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/mountains">
+
 
     <TextView
         android:id="@+id/welcome_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="Hello, welcome to"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/main_voluntour_view"
         android:layout_width="wrap_content"
@@ -130,9 +131,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_view"
         android:textAlignment="center"
-        android:textColor="@color/purple_200"
-        android:textSize="90sp"/>
-    
+        android:textColor="@color/black"
+        android:textSize="90sp"
+        android:fontFamily="cursive"/>
+
     <TextView
         android:id="@+id/before_getting_started_view"
         android:layout_width="wrap_content"
@@ -155,7 +157,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="35sp"
-        android:paddingVertical="25dp"/>
+        android:paddingVertical="25dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="sans-serif-smallcaps"/>
 
     <Button
         android:id="@+id/organization_button"
@@ -167,5 +171,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="35sp"
-        android:paddingVertical="25dp"/>
+        android:paddingVertical="25dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="sans-serif-smallcaps"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
