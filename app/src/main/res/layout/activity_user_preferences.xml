@@ -62,7 +62,8 @@
                 android:name="com.example.afgproject.T_Recycler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_t_recycler" />
+                tools:layout="@layout/fragment_t_recycler"
+                />
         </ScrollView>
 
         <TextView
@@ -74,6 +75,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="300dp">
+
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/skills_recycler_view"
                 android:name="com.example.afgproject.T_Recycler"
@@ -87,10 +89,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/empty_string"
-        android:hint="Hello"
+        android:hint="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:background="@drawable/lavender_border"
+        android:textColor="@color/white"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
