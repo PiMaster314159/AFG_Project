@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getSharedPreferences("Profile", Context.MODE_PRIVATE).edit().clear().apply();
+        getSharedPreferences("Profile", Context.MODE_PRIVATE).edit().clear().apply();
         VolunteerSharedData.setSharedPreferences();
-//        VolunteerSharedData.clearSharedPreferences();
+        VolunteerSharedData.clearSharedPreferences();
 
         int profileType = getSharedPreferences("Profile", Context.MODE_PRIVATE).getInt("ProfileType", 0);
         switch (profileType){
