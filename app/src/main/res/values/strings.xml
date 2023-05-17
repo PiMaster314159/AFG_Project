@@ -249,4 +249,6 @@
 
     <string name="user_preferences_map">User Preferences</string>
     <string name="empty_string" />
+    <string name="volunteer_home_page_header">Recommended Activities</string>
+    <string name="organization_home_page_header">Manage Your Activities</string>
 </resources>

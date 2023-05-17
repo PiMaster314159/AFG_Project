@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrganizationSettings">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:background="@drawable/lavender_border">
+
+
+        <LinearLayout
+            android:id="@+id/mostOfProfileSetupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/organizationNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/lavender_border"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/organizationNameQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/organization_nameStr"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/organizationName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="e.g. Voluntour"
+                    android:textSize="18sp"
+                    android:importantForAutofill="no"
+                    tools:ignore="LabelFor"
+                    android:gravity="start|center_vertical"
+                    android:padding="16dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/emailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/organizationEmailLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginEnd="8dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/organizationEmailQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/organization_emailStr"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textSize="18.5sp" />
+
+                    <EditText
+                        android:id="@+id/organizationEmailInput"
+                        android:layout_width="178dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="12.5dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="john@gmail.com"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailAddress"
+                        android:textSize="18sp"
+                        tools:ignore="LabelFor,NestedWeights" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/headEmailLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginStart="8dp">
+
+                    <TextView
+                        android:id="@+id/headEmailQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/head_emailStr"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"/>
+
+                    <EditText
+                        android:id="@+id/headEmailInput"
+                        android:layout_width="177dp"
+                        android:layout_height="9dp"
+                        android:layout_marginStart="12.5dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="john@gmail.com"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailSubject"
+                        android:textSize="18sp"
+                        tools:ignore="LabelFor,NestedWeights" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/phoneNumbersLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#90C7CAE3"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+
+                <LinearLayout
+                    android:id="@+id/organizationPhoneLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/organizationPhoneQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/head_emailStr"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="5dp"/>
+
+                    <EditText
+                        android:id="@+id/organizationPhoneInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:hint="xxx-xxx-xxxx"
+                        android:textSize="18sp"
+                        tools:ignore="Autofill,LabelFor,NestedWeights,TextFields"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/headPhoneLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/headPhoneQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/head_emailStr"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:layout_marginStart="5dp" />
+
+                    <EditText
+                        android:id="@+id/headPhoneInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:hint="xxx-xxx-xxxx"
+                        android:textSize="18sp"
+                        tools:ignore="Autofill,LabelFor,NestedWeights,TextFields"/>
+                </LinearLayout>
+                <!-- upload organization certification... code not done
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/licenseLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/organizationLicense"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:text="@string/organization_licenseStr"
+                                android:textSize="18sp" />
+
+                            <ImageButton
+                                android:id="@+id/uploadLicenseButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:backgroundTint="#8FE9FF"
+                                app:srcCompat="@android:drawable/ic_menu_upload" />
+                        -->
+            </LinearLayout>
+
+
+            <!-- un and pwd... not coded
+        <EditText
+            android:id="@+id/organizationUsernameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/organization_usernameStr"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/organizationPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/organization_passwordStr"
+            android:textSize="18sp"/>
+
+       //delete confirm pwd?
+        <EditText
+            android:id="@+id/organizationPasswordConfirmInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/organization_passwordConfirmStr"
+            android:textSize="18sp"/>
+
+        <CheckBox
+            android:id="@+id/notARobot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/iAmNotARobot"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/termsAndConditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/TermsAndConditions"
+            android:textSize="18sp" />
+-->
+
+            <LinearLayout
+                android:id="@+id/zipCodeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/lavender_border">
+
+                <TextView
+                    android:id="@+id/organizationZipCodeQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/organization_locationStr"
+                    android:textAlignment="center"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/organizationZipCodeInput"
+                    android:layout_width="371dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:hint="e.g. 10293"
+                    android:inputType="number"
+                    android:textSize="18sp"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
