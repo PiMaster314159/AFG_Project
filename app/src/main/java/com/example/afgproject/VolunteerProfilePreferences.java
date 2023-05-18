@@ -34,6 +34,8 @@ public class VolunteerProfilePreferences extends AppCompatActivity {
         createAccountButton.setOnClickListener(v -> {
             System.out.println("ok");
             saveData();
+            Intent intent = new Intent(v.getContext(), VolunteerHome.class);
+            startActivity(intent);
         });
 
         Button cancelButton = findViewById(R.id.cancel_button);

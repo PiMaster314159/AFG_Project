@@ -16,6 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,6 +58,7 @@ public class VolunteerHome extends AppCompatActivity {
         this.dialog = builder.create();
         dialog.show();
         this.sortedActivityList = new ArrayList<>();
+        this.totalActivityList = new ArrayList<>();
         this.totalActivityList = getActivities();
 
 
@@ -109,6 +112,7 @@ public class VolunteerHome extends AppCompatActivity {
         organizationsRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException e) {
+                totalActivityList.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     ActivityData activity = doc.toObject(ActivityData.class);
                     activity.setKey(doc.getId());

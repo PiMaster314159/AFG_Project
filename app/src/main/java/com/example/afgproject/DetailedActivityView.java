@@ -2,6 +2,7 @@ package com.example.afgproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,11 @@ public class DetailedActivityView extends AppCompatActivity {
         detailLang = findViewById(R.id.detailLang);
         detailTime = findViewById(R.id.detailTime);
         Bundle bundle = getIntent().getExtras();
+
+        if(getSharedPreferences("Profile", Context.MODE_PRIVATE).getInt("ProfileType", 0) == 1){
+            editButton.setLabelVisibility(View.INVISIBLE);
+            deleteButton.setLabelVisibility(View.INVISIBLE);
+        }
 
         if (bundle != null){
             detailDesc.setText(bundle.getString("Description"));
