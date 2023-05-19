@@ -90,6 +90,7 @@ public class VolunteerHome extends AppCompatActivity {
         organizationsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                dialog.show();
                 totalActivityList.clear();
                 sortedActivityList.clear();
                 if(task.isSuccessful()) {
@@ -104,14 +105,15 @@ public class VolunteerHome extends AppCompatActivity {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    dialog.dismiss();
                 }
+                dialog.dismiss();
                 System.out.println("size " + totalActivityList.size());
             }
         });
         organizationsRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException e) {
+                dialog.show();
                 totalActivityList.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     ActivityData activity = doc.toObject(ActivityData.class);
@@ -128,8 +130,6 @@ public class VolunteerHome extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        for(ActivityData activity : totalActivityList){
-        }
         return totalActivityList;
     }
 

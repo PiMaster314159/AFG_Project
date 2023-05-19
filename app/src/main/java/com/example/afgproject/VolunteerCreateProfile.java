@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -32,10 +33,15 @@ public class VolunteerCreateProfile extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.volunteer_settings_holder, volunteerSettings).commit();
         Button createAccountButton = findViewById(R.id.create_profile_button);
         createAccountButton.setOnClickListener(v -> {
-            System.out.println("ok");
-            saveData();
-            Intent intent = new Intent(v.getContext(), VolunteerHome.class);
-            startActivity(intent);
+            try {
+                if(volunteerSettings.validData()){
+                    saveData();
+                    Intent intent = new Intent(v.getContext(), VolunteerHome.class);
+                    startActivity(intent);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         Button cancelButton = findViewById(R.id.cancel_button);

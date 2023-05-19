@@ -61,6 +61,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder> {
             intent.putExtra("Title", data.get(holder.getAbsoluteAdapterPosition()).getDataTitle());
             intent.putExtra("Key",data.get(holder.getAbsoluteAdapterPosition()).getKey());
             intent.putExtra("Language", data.get(holder.getAbsoluteAdapterPosition()).getDataLang());
+            intent.putExtra("Time", data.get(holder.getAbsoluteAdapterPosition()).getTime());
+
             context.startActivity(intent);
         });
         holderList.add(holder);

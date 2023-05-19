@@ -31,6 +31,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
+
 public class UpdateActivity extends AppCompatActivity {
     ImageView updateImage;
     Button updateButton;
@@ -91,9 +93,15 @@ public class UpdateActivity extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveData();
-                Intent intent = new Intent(UpdateActivity.this, OrganizationHome.class);
-                startActivity(intent);
+                try {
+                    if(validData()){
+                        saveData();
+                        Intent intent = new Intent(UpdateActivity.this, OrganizationHome.class);
+                        startActivity(intent);
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }
@@ -125,5 +133,37 @@ public class UpdateActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+    }
+    private boolean validData() throws IOException {
+        android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(UpdateActivity.this)
+                .setTitle("Invalid input")
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {})
+                .setIcon(android.R.drawable.ic_dialog_alert);
+        if(String.valueOf(updateTitle.getText()).isEmpty()){
+            alertDialog.setMessage("Please enter a valid activity title.");
+            alertDialog.show();
+            return false;
+        }
+        if(!Utils.isValidZipCode(String.valueOf(UpdateZipCode.getText()))){
+            alertDialog.setMessage("Please enter a valid zip code.");
+            alertDialog.show();
+            return false;
+        }
+        if(String.valueOf(UpdateTime.getText()).isEmpty()){
+            alertDialog.setMessage("Please enter a valid activity time.");
+            alertDialog.show();
+            return false;
+        }
+        if(String.valueOf(updateLang.getText()).isEmpty()){
+            alertDialog.setMessage("Please enter a valid activity date.");
+            alertDialog.show();
+            return false;
+        }
+        if(String.valueOf(updateDesc.getText()).isEmpty()){
+            alertDialog.setMessage("Please enter a valid activity description.");
+            alertDialog.show();
+            return false;
+        }
+        return true;
     }
 }

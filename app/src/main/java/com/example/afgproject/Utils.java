@@ -44,4 +44,9 @@ public class Utils {
         System.out.println("Addresses " + new Geocoder(MyApplication.getContext()).getFromLocationName(zipCode, 1));
         return new Geocoder(MyApplication.getContext()).getFromLocationName(zipCode, 1).get(0);
     }
+
+    public static boolean isValidZipCode(String zipCode) throws IOException {
+        if(zipCode.equals("")) return false;
+        return (new Geocoder(MyApplication.getContext()).getFromLocationName(zipCode, 1).size() > 0);
+    }
 }

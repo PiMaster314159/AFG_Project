@@ -33,18 +33,21 @@ public class ObjectMap {
         return values.get(keys.indexOf(key));
     }
 
-    /*  Unused functionality
-    public void addPair(String key, Object value){
-        keys.add(key);
-        values.add(value);
+    public int getIndex(String key){
+        return keys.indexOf(key);
     }
+
+
 
     public void changePair(String key, Object value){
         values.set(keys.indexOf(key), value);
     }
-
+    /*Unused functionality
     public void removePair(String key){
         values.remove(keys.remove(key));
     }
-    */
+    public void addPair(String key, Object value){
+        keys.add(key);
+        values.add(value);
+    }*/
 }

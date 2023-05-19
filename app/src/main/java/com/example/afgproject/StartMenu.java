@@ -31,9 +31,9 @@ public class StartMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSharedPreferences("Profile", Context.MODE_PRIVATE).edit().clear().apply();
+//        getSharedPreferences("Profile", Context.MODE_PRIVATE).edit().clear().apply();
         VolunteerData.setSharedPreferences();
-        VolunteerData.clearSharedPreferences();
+//        VolunteerData.clearSharedPreferences();
 
         int profileType = getSharedPreferences("Profile", Context.MODE_PRIVATE).getInt("ProfileType", 0);
         switch (profileType){

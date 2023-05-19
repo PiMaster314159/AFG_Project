@@ -1,12 +1,17 @@
 package com.example.afgproject;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -33,9 +38,15 @@ public class VolunteerProfilePreferences extends AppCompatActivity {
         Button createAccountButton = findViewById(R.id.create_profile_button);
         createAccountButton.setOnClickListener(v -> {
             System.out.println("ok");
-            saveData();
-            Intent intent = new Intent(v.getContext(), VolunteerHome.class);
-            startActivity(intent);
+            try {
+               if(volunteerSettings.validData()){
+                   saveData();
+                   Intent intent = new Intent(v.getContext(), VolunteerHome.class);
+                   startActivity(intent);
+               }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         Button cancelButton = findViewById(R.id.cancel_button);
@@ -49,24 +60,41 @@ public class VolunteerProfilePreferences extends AppCompatActivity {
      * Save the selected data to user preferences
      * Skills and interests are checked if they are selected, and their names are used to populate the volunteer's data
      */
-    public void saveData(){
-        ArrayList<UniversalHolder> allInterests = this.volunteerSettings.getAllInterests();
+    public void saveData() throws IOException {
+        ArrayList<ObjectMap> interestMap = this.volunteerSettings.getInterestMap();
         ArrayList<String> selectedInterestNames = new ArrayList<>();
-        for(UniversalHolder holder : allInterests)
-            if(((SettingsRvHolder) holder).getSelected()) {
-                selectedInterestNames.add(holder.getName());
-                System.out.println(holder.getName());
+        for(ObjectMap interest : interestMap){
+            if((boolean) interest.getValue("isSelected")){
+                selectedInterestNames.add((String) interest.getValue("Widget Text"));
             }
+        }
         VolunteerData.putInterests(selectedInterestNames);
 
-        ArrayList<UniversalHolder> allSkills = this.volunteerSettings.getAllSkills();
-        ArrayList<String> selectedSkillsNames = new ArrayList<>();
-        for(UniversalHolder holder : allSkills)
-            if(((SettingsRvHolder) holder).getSelected())
-                selectedSkillsNames.add(holder.getName());
-        VolunteerData.putSkills(selectedSkillsNames);
-
-        VolunteerData.putZipCode(volunteerSettings.getZipCode());
-        VolunteerData.putMaxDistance(volunteerSettings.getMaxDistance());
+        ArrayList<ObjectMap> skillMap = this.volunteerSettings.getSkillMap();
+        ArrayList<String> selectedSkillNames = new ArrayList<>();
+        for(ObjectMap skill : skillMap){
+            if((boolean) skill.getValue("isSelected")){
+                selectedSkillNames.add((String) skill.getValue("Widget Text"));
+            }
+        }
+        System.out.println("selected skills " + selectedSkillNames);
+        VolunteerData.putSkills(selectedSkillNames);
+//        ArrayList<UniversalHolder> allInterests = this.volunteerSettings.getAllInterests();
+//        for(UniversalHolder holder : allInterests)
+//            if(((SettingsRvHolder) holder).getSelected()) {
+//                selectedInterestNames.add(holder.getName());
+//                System.out.println(holder.getName());
+//            }
+//        VolunteerData.putInterests(selectedInterestNames);
+//
+//        ArrayList<UniversalHolder> allSkills = this.volunteerSettings.getAllSkills();
+//        ArrayList<String> selectedSkillsNames = new ArrayList<>();
+//        for(UniversalHolder holder : allSkills)
+//            if(((SettingsRvHolder) holder).getSelected())
+//                selectedSkillsNames.add(holder.getName());
+//        VolunteerData.putSkills(selectedSkillsNames);
+//
+//        VolunteerData.putZipCode(volunteerSettings.getZipCode());
+//        VolunteerData.putMaxDistance(volunteerSettings.getMaxDistance());
     }
 }
